@@ -45,7 +45,17 @@ const config = {
       {
         test: /\.scss$/,
         include: path.resolve(__dirname, 'src/scss'),
-        loader: extractCSS.extract(['css-loader', 'sass-loader']),
+        use: extractCSS.extract([
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              url: false,
+            },
+          },
+          'postcss-loader',
+          'sass-loader',
+        ]),
       },
       {
         test: /\.(jpg|png)$/,
@@ -53,6 +63,15 @@ const config = {
           {
             loader: 'url-loader',
             options: { limit: 10000 },
+          },
+        ],
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: { name: '[name].[ext]' },
           },
         ],
       },
