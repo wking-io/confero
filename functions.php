@@ -1,13 +1,13 @@
 <?php
 /**
- * johnsonKreis functions and definitions
+ * confero functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package johnsonKreis
+ * @package confero
  */
 
-if ( ! function_exists( 'johnsonkreis_setup' ) ) :
+if ( ! function_exists( 'confero_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -15,14 +15,14 @@ if ( ! function_exists( 'johnsonkreis_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function johnsonkreis_setup() {
+function confero_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on johnsonKreis, use a find and replace
-	 * to change 'johnsonkreis' to the name of your theme in all the template files.
+	 * If you're building a theme based on confero, use a find and replace
+	 * to change 'confero' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'johnsonkreis', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'confero', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -44,7 +44,7 @@ function johnsonkreis_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'johnsonkreis' ),
+		'menu-1' => esc_html__( 'Primary', 'confero' ),
 	) );
 
 	/*
@@ -60,7 +60,7 @@ function johnsonkreis_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'johnsonkreis_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'confero_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
@@ -69,7 +69,7 @@ function johnsonkreis_setup() {
 	add_theme_support( 'customize-selective-refresh-widgets' );
 }
 endif;
-add_action( 'after_setup_theme', 'johnsonkreis_setup' );
+add_action( 'after_setup_theme', 'confero_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -78,50 +78,50 @@ add_action( 'after_setup_theme', 'johnsonkreis_setup' );
  *
  * @global int $content_width
  */
-function johnsonkreis_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'johnsonkreis_content_width', 640 );
+function confero_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'confero_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'johnsonkreis_content_width', 0 );
+add_action( 'after_setup_theme', 'confero_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function johnsonkreis_widgets_init() {
+function confero_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'johnsonkreis' ),
+		'name'          => esc_html__( 'Sidebar', 'confero' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'johnsonkreis' ),
+		'description'   => esc_html__( 'Add widgets here.', 'confero' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'johnsonkreis_widgets_init' );
+add_action( 'widgets_init', 'confero_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function johnsonkreis_scripts() {
-	wp_enqueue_style( 'johnsonkreis-style', get_template_directory_uri() . '/dist/main.bundle.css' );
+function confero_scripts() {
+	wp_enqueue_style( 'confero-style', get_template_directory_uri() . '/dist/main.bundle.css' );
 
-	wp_enqueue_script('johnsonkreis-commons', get_template_directory_uri() . '/dist/commons.js', array(), '1.0.0', true);
+	wp_enqueue_script('confero-commons', get_template_directory_uri() . '/dist/commons.js', array(), '1.0.0', true);
 
-	wp_enqueue_script('johnsonkreis-main', get_template_directory_uri() . '/dist/main.bundle.js', array(), '1.0.0', true);
+	wp_enqueue_script('confero-main', get_template_directory_uri() . '/dist/main.bundle.js', array(), '1.0.0', true);
 
 	// Default Underscore JS
 
-	wp_enqueue_script( 'johnsonkreis-navigation', get_template_directory_uri() . '/src/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'confero-navigation', get_template_directory_uri() . '/src/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'johnsonkreis-skip-link-focus-fix', get_template_directory_uri() . '/src/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'confero-skip-link-focus-fix', get_template_directory_uri() . '/src/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'johnsonkreis_scripts' );
+add_action( 'wp_enqueue_scripts', 'confero_scripts' );
 
 /**
  * Implement the Custom Header feature.

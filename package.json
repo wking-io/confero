@@ -12,6 +12,7 @@
   "author": "William King",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^7.2.4",
     "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
@@ -31,6 +32,7 @@
     "prettier-eslint": "^8.6.2",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.17.0",
+    "tailwindcss": "^0.4.0",
     "url-loader": "^0.5.8",
     "webpack": "^2.5.1"
   },
