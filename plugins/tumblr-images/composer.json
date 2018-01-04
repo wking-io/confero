@@ -1,0 +1,14 @@
+{
+  "name": "wking/tumblr-images",
+  "description": "Pull in images from blogs posts on tumblr",
+  "type": "project",
+  "require": {
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "authors": [
+    {
+      "name": "Will King",
+      "email": "contact@wking.io"
+    }
+  ]
+}
