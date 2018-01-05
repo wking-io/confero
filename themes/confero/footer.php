@@ -19,6 +19,12 @@
 			<span class="sep"> | </span>
 			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'johnsonkreis' ), 'johnsonkreis', '<a href="https://automattic.com/" rel="designer">Underscores.me</a>' ); ?>
 		</div><!-- .site-info -->
+
+		<?php if ( is_active_sidebar( 'social-widget-area' ) ) : ?>
+			<div class="social-links">
+				<?php dynamic_sidebar( 'social-widget-area' ); ?>
+			</div>
+		<?php endif; ?>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
