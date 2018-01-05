@@ -11,7 +11,48 @@
         'type' => 'text',
         'default_value' => 'Converse',
         'placeholder' => 'Converse',
-      )
+      ),
+      array (
+        'key' => 'field_converse_content',
+        'label' => 'Converse Content',
+        'name' => 'converse_content',
+        'type' => 'textarea',
+        'default_value' => 'Tell us about your next party! We\'re free to chat Tuesday through Friday. Meetings are scheduled in advance and by appointment only. We are closed Sunday and Monday to rest and recharge. We can\'t wait to hear from you!',
+        'placeholder' => '',
+        'new_lines' => '',
+      ),
+      array (
+        'key'          => 'field_converse_options',
+        'label'        => 'Contact Options',
+        'name'         => 'converse_options',
+        'type'         => 'repeater',
+        'layout'       => 'table',
+        'button_label' => 'Add Option',
+        'collapsed'    => true,
+        'min'          => 1,
+        'max'          => 3,
+        'instructions' => 'Using the Add Option button below add a section for each contact option you want to add',
+        'sub_fields'   => array (
+          array (
+            'key' => 'field_converse_title',
+            'label' => 'Converse Option Title',
+            'name' => 'converse_title',
+            'type' => 'text',
+            'default_value' => '',
+            'placeholder' => '',
+            'instructions' => 'Add the title of the option here',
+          ),
+          array (
+            'key' => 'field_converse_info',
+            'label' => 'Converse Option Info',
+            'name' => 'converse_info',
+            'type' => 'text',
+            'default_value' => '',
+            'placeholder' => '',
+            'instructions' => 'Add the info of option here. Whether it is an email addres or phone number',
+          )
+        ),
+      ),
     ),
     'location' => array (
       array (
