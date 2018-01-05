@@ -7,6 +7,8 @@
  * @package confero
  */
 
+define( 'THEME_NAME', 'confero' );
+
 if ( ! function_exists( 'confero_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -90,11 +92,21 @@ add_action( 'after_setup_theme', 'confero_content_width', 0 );
  */
 function confero_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'confero' ),
+		'name'          => esc_html__( 'Sidebar', THEME_NAME ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'confero' ),
+		'description'   => esc_html__( 'Add widgets here.', THEME_NAME ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Social Widget Area', THEME_NAME ),
+		'id'            => 'social-widget-area',
+		'description'   => esc_html__( 'Add widgets here.', THEME_NAME ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
@@ -157,24 +169,6 @@ require get_template_directory() . '/inc/jetpack.php';
 // wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Droid+Serif:400,400i', false );
 // }
 // add_action( 'wp_enqueue_scripts', 'themeName_add_google_fonts' );
-
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-// function themeName_widgets_init() {
-// 	register_sidebar( array(
-// 		'name'          => esc_html__( 'Widget Area', 'theme-name' ),
-// 		'id'            => 'header-widget-area',
-// 		'description'   => esc_html__( 'Add widgets here.', 'theme-name' ),
-// 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-// 		'after_widget'  => '</div>',
-// 		'before_title'  => '<h2 class="widget-title">',
-// 		'after_title'   => '</h2>',
-// 	) );
-// }
-// add_action( 'widgets_init', 'themeName_widgets_init' );
 
 /**
  * Register new photo sizes.
