@@ -160,6 +160,11 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+/*
+ * Add ACF fields
+ */
+require_once get_template_directory() . '/fields/fields.php';
+
 /**
  * Register google fonts.
  *
