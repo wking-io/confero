@@ -1,17 +1,64 @@
 <?php
 
+  function get_service_links() {
+    $links = array (
+      '/portfolio/editorial' => 'Editorial Page',
+      '/portfolio/wedding' => 'Wedding Page',
+      '/portfolio/social' => 'Social Page',
+    );
+
+    return $links;
+  }
+
   acf_add_local_field_group(array (
-    'key' => 'group_converse',
-    'title' => 'Converse Fields',
+    'key' => 'group_services',
+    'title' => 'Services Fields',
     'fields' => array (
       array (
-        'key' => 'field_converse_heading',
-        'label' => 'Converse Heading',
-        'name' => 'converse_heading',
-        'type' => 'text',
-        'default_value' => 'Converse',
-        'placeholder' => 'Converse',
-      )
+        'key' => 'field_service_tiles',
+        'label' => 'Service Tiles',
+        'name' => 'service_tiles',
+        'type' => 'repeater',
+        'layout'       => 'block',
+        'button_label' => 'Add Tile',
+        'collapsed'    => true,
+        'min'          => 1,
+        'max'          => 3,
+        'instructions' => 'Using the Add Tile button below add a tile for each service.',
+        'sub_fields'   => array (
+          array (
+            'key' => 'field_service_img',
+            'label' => 'Service Image',
+            'name' => 'service_img',
+            'type'    			=> 'image',
+            'return_format' => 'array',
+            'mime_types' 		=> 'jpg, png',
+          ),
+          array (
+            'key' => 'field_service_title',
+            'label' => 'Service Title',
+            'name' => 'service_title',
+            'type' => 'text',
+            'default_value' => '',
+            'placeholder' => '',
+          ),
+          array (
+            'key' => 'field_service_link',
+            'label' => 'Service Link',
+            'name' => 'service_position',
+            'type'    => 'select',
+            'instructions' => 'This dropdown lets you choose where the tile links to',
+            'choices' => get_service_links(),
+          ),
+          array (
+            'key' => 'field_service_description',
+            'label' => 'Service Description',
+            'name' => 'service_description',
+            'type'    => 'textarea',
+            'new_lines' => '',
+          ),
+        ),
+      ),
     ),
     'location' => array (
       array (

@@ -1,6 +1,6 @@
 <?php
 
-  function get_service_links() {
+  function get_home_service_links() {
     $links = array (
       '/services' => 'Services Page',
       '/portfolio' => 'Portfolio Page',
@@ -31,9 +31,9 @@
         'min'          	=> 1,
       ),
       array (
-        'key'          => 'field_service_tiles',
+        'key'          => 'field_home_service_tiles',
         'label'        => 'Service Tiles',
-        'name'         => 'service_tiles',
+        'name'         => 'home_service_tiles',
         'type'         => 'repeater',
         'layout'       => 'table',
         'button_label' => 'Add Tile',
@@ -43,26 +43,26 @@
         'instructions' => 'Using the Add Tile button below add a tile for each service.',
         'sub_fields'   => array (
           array (
-            'key' => 'field_service_img',
+            'key' => 'field_home_service_img',
             'label' => 'Service Image',
-            'name' => 'service_img',
+            'name' => 'home_service_img',
             'type'    			=> 'image',
             'return_format' => 'array',
             'mime_types' 		=> 'jpg, png',
           ),
           array (
-            'key' => 'field_service_text',
+            'key' => 'field_home_service_text',
             'label' => 'Service Text',
-            'name' => 'service_text',
+            'name' => 'home_service_text',
             'type' => 'text',
             'default_value' => '',
             'placeholder' => '',
             'instructions' => 'If you want to add text using your image just leave this field blank.',
           ),
           array (
-            'key' => 'field_service_position',
+            'key' => 'field_home_service_position',
             'label' => 'Service Text Position',
-            'name' => 'service_position',
+            'name' => 'home_service_position',
             'type'    => 'select',
             'instructions' => 'This dropdown moves the text to the different corners of the tile',
             'choices' => array (
@@ -73,12 +73,12 @@
             ),
           ),
           array (
-            'key' => 'field_service_link',
+            'key' => 'field_home_service_link',
             'label' => 'Service Link',
-            'name' => 'service_position',
+            'name' => 'home_service_position',
             'type'    => 'select',
             'instructions' => 'This dropdown lets you choose where the tile links to',
-            'choices' => get_service_links(),
+            'choices' => get_home_service_links(),
           ),
         ),
       ),
