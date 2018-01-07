@@ -75,7 +75,7 @@
           array (
             'key' => 'field_home_service_link',
             'label' => 'Service Link',
-            'name' => 'home_service_position',
+            'name' => 'home_service_link',
             'type'    => 'select',
             'instructions' => 'This dropdown lets you choose where the tile links to',
             'choices' => get_home_service_links(),

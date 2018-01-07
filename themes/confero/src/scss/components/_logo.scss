@@ -1,0 +1,67 @@
+.logo {
+  height: 100%;
+  &--desktop {
+    margin: 0;
+    text-transform: uppercase;
+    font-family: $sans-font;
+    font-size: 16rem;
+    letter-spacing: 0.175em;
+    line-height: 1;
+    margin: -1rem 0;
+    & a {
+      color: $primary-color;
+      text-decoration: none;
+    }
+  }
+
+  &--mobile {
+    display: none;
+    height: 100%;
+    margin: 0;
+    & svg {
+      height: 100%;
+    }
+  }
+}
+
+.theme--dark .logo {
+  &--desktop a {
+    color: $white;
+  }
+  &--mobile .logo-fill {
+    fill: $white;
+  }
+}
+
+@include media('<1200px') {
+  .logo {
+    &--desktop {
+      font-size: 14rem;
+    }
+  }
+}
+
+@include media('<1040px') {
+  .logo {
+    &--desktop {
+      font-size: 10rem;
+    }
+  }
+}
+
+@include media('<950px') {
+  .logo {
+    flex: 1;
+  }
+}
+
+@include media('<500px') {
+  .logo {
+    &--desktop {
+      display: none;
+    }
+    &--mobile {
+      display: block;
+    }
+  }
+}

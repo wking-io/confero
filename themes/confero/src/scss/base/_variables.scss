@@ -1,7 +1,7 @@
 // Fonts
-// $display-font: ;
-// $serif-font: ;
-// $sans-font: ;
+$display-font: 'Century Gothic Bold', sans-serif;
+$serif-font: 'Merriweather', serif;
+$sans-font: 'Century Gothic', sans-serif;
 
 // Type Scale
 $type-scale: (
@@ -23,11 +23,11 @@ $gap: (
 
 // Responsive Breakpoints
 $breakpoints: (
-  xs: 100px,
-  s: 200px,
-  m: 300px,
-  l: 400px,
-  xl: 500px
+  xs: 320px,
+  s: 500px,
+  m: 780px,
+  l: 1100px,
+  xl: 1400px
 );
 
 // Colors

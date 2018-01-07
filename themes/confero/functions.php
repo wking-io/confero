@@ -169,11 +169,11 @@ require_once get_template_directory() . '/fields/fields.php';
  * Register google fonts.
  *
  */
-// function themeName_add_google_fonts() {
-//
-// wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Droid+Serif:400,400i', false );
-// }
-// add_action( 'wp_enqueue_scripts', 'themeName_add_google_fonts' );
+function confero_add_google_fonts() {
+
+wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Merriweather', false );
+}
+add_action( 'wp_enqueue_scripts', 'confero_add_google_fonts' );
 
 /**
  * Register new photo sizes.

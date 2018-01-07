@@ -1,0 +1,82 @@
+.menu-toggle {
+  width: 8rem;
+  height: 5rem;
+  position: relative;
+  cursor: pointer;
+  align-self: center;
+  z-index: 999;
+  text-align: right;
+
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+  display: none;
+
+  &:active, &:focus &:visited {
+    outline: none;
+    border: none;
+  }
+
+  & span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: $primary-color;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: all .2s cubic-bezier(0.0, 0.0, 0.2, 1);
+
+    &:first-child {
+      top: 0;
+    }
+
+    &:nth-child(2), &:nth-child(3) {
+      top: 8px;
+      width: 75%;
+      margin-left: 25%;
+    }
+
+    &:last-child {
+      top: 16px;
+      width: 50%;
+      margin-left: 50%;
+    }
+
+  }
+
+  &[aria-expanded=true] span {
+
+    &:first-child {
+			top: 18px;
+			width: 0%;
+			left: 50%;
+		}
+
+		&:nth-child(2) {
+			transform: rotate(45deg);
+      width: 100%;
+      margin: 0;
+		}
+
+		&:nth-child(3) {
+			transform: rotate(-45deg);
+      width: 100%;
+      margin: 0;
+		}
+
+		&:last-child {
+			top: 18px;
+			width: 0%;
+			left: 50%;
+		}
+
+  }
+}
+
+@include media('<950px') {
+  .menu-toggle {
+    display: block;
+  }
+}

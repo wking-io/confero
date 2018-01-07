@@ -40,6 +40,9 @@
       format('svg');
 }
 
+@tailwind preflight;
+@tailwind utilities;
+
 @import 'base/base';
 @import 'vendors/module';
 @import 'utils/module';
