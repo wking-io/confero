@@ -20,8 +20,11 @@ import '../fonts/3bd69eb9-2110-4d97-989e-99a659576659.woff';
 import '../fonts/8edaed62-069c-4a3b-87f5-fc14b5cdaec3.ttf';
 import '../fonts/d5c40f0a-3098-4a2b-8cbb-84524c2a29bc.svg';
 
-import { initTumblrSlider } from './sliders';
+import { initTumblrSlider, initHeroSlider } from './sliders';
 
 // Tumblr Slider Initialization
 const tumblrSliderWrapper = '.tumblr-slider';
 initTumblrSlider(tumblrSliderWrapper);
+
+const heroSliderWrapper = '.hero-slider';
+initHeroSlider(heroSliderWrapper);

@@ -1,7 +1,20 @@
+*,
+*:before,
+*:after {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 html {
   font-size: 4px;
 }
 
 body {
   font-size: 4rem;
+  font-family: $sans-font;
+}
+
+button:active,
+button:focus {
+  outline: none;
 }

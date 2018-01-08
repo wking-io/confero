@@ -12,23 +12,83 @@
     return $links;
   }
 
+  function get_page_links() {
+    $links = array (
+      0 => 'No link',
+      '/services' => 'Services Page',
+      '/portfolio' => 'Portfolio Page',
+      '/portfolio/editorial' => 'Editorial Page',
+      '/portfolio/wedding' => 'Wedding Page',
+      '/portfolio/social' => 'Social Page',
+      '/media/publications' => 'Publications Page',
+      '/media/films' => 'Films Page',
+      '/converse' => 'Contact Page',
+    );
+
+    return $links;
+  }
+
   acf_add_local_field_group(array (
     'key' => 'group_home',
     'title' => 'Home Fields',
     'fields' => array (
       array (
-        'key'      => 'field_hero_images_desktop',
-        'label'    => 'Hero Images - Desktop',
-        'name'     => 'hero_images_desktop',
-        'type'     			=> 'gallery',
-        'min'          	=> 1,
+        'key'          => 'field_hero_slides_desktop',
+        'label'        => 'Hero Slides - Desktop',
+        'name'         => 'hero_slides_desktop',
+        'type'         => 'repeater',
+        'layout'       => 'table',
+        'button_label' => 'Add Slide',
+        'collapsed'    => true,
+        'min'          => 1,
+        'instructions' => 'Use the Add Slide button below add a new slides.',
+        'sub_fields'   => array (
+          array (
+            'key' => 'field_hero_slides_desktop_img',
+            'label' => 'Slide Image',
+            'name' => 'hero_slides_desktop_img',
+            'type'    			=> 'image',
+            'return_format' => 'array',
+            'mime_types' 		=> 'jpg, png',
+          ),
+          array (
+            'key' => 'field_hero_slides_desktop_link',
+            'label' => 'Slide Link',
+            'name' => 'hero_slides_desktop_link',
+            'type'    => 'select',
+            'instructions' => 'This dropdown lets you choose where the slide links to',
+            'choices' => get_page_links(),
+          ),
+        ),
       ),
       array (
-        'key'      => 'field_hero_images_mobile',
-        'label'    => 'Hero Images - Mobile',
-        'name'     => 'hero_images_mobile',
-        'type'     			=> 'gallery',
-        'min'          	=> 1,
+        'key'          => 'field_hero_slides_mobile',
+        'label'        => 'Hero Slides - Mobile',
+        'name'         => 'hero_slides_mobile',
+        'type'         => 'repeater',
+        'layout'       => 'table',
+        'button_label' => 'Add Slide',
+        'collapsed'    => true,
+        'min'          => 1,
+        'instructions' => 'Use the Add Slide button below add a new slides.',
+        'sub_fields'   => array (
+          array (
+            'key' => 'field_hero_slides_mobile_img',
+            'label' => 'Slide Image',
+            'name' => 'hero_slides_mobile_img',
+            'type'    			=> 'image',
+            'return_format' => 'array',
+            'mime_types' 		=> 'jpg, png',
+          ),
+          array (
+            'key' => 'field_hero_slides_mobile_link',
+            'label' => 'Slide Link',
+            'name' => 'hero_slides_mobile_link',
+            'type'    => 'select',
+            'instructions' => 'This dropdown lets you choose where the slide links to',
+            'choices' => get_page_links(),
+          ),
+        ),
       ),
       array (
         'key'          => 'field_home_service_tiles',

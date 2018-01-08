@@ -43,10 +43,9 @@
 @tailwind preflight;
 @tailwind utilities;
 
-@import 'base/base';
+@import 'base/module';
 @import 'vendors/module';
 @import 'utils/module';
-@import 'base/module';
 @import 'layout/module';
 @import 'components/module';
 @import 'pages/module';

@@ -35,7 +35,7 @@ export function initTumblrSlider(context) {
   $(`${context} .slider-next`).click(() => $(`${context} .slider`).slick('slickNext'));
 }
 
-export function initEndorsementSlider(context) {
+export function initHeroSlider(context) {
   $(`${context} .slider`).slick({
     infinite: true,
     slidesToShow: 1,
@@ -44,7 +44,12 @@ export function initEndorsementSlider(context) {
     autoplay: true,
     autoplaySpeed: 7500,
     adaptiveHeight: true,
+    nextArrow: document.querySelector(`${context} .slick-next`),
+    prevArrow: document.querySelector(`${context} .slick-prev`),
   });
+
+  $(`${context} .slider-prev`).click(() => $(`${context} .slider`).slick('slickPrev'));
+  $(`${context} .slider-next`).click(() => $(`${context} .slider`).slick('slickNext'));
 }
 
 export function destroySlider(context) {
