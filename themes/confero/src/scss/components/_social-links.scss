@@ -1,0 +1,54 @@
+.social-links {
+  height: 100%;
+
+  & .social-link {
+    margin-left: 5rem;
+    display: block;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  & svg {
+    height: 100%;
+  }
+
+  & .svg--fill {
+    fill: $primary-color;
+  }
+
+  & .social-link:hover .svg--fill {
+    opacity: 0.5;
+  }
+}
+
+@include media('<650px') {
+  .social-links {
+    @apply items-center;
+    @apply justify-center;
+    width: 100%;
+    height: 20px;
+
+    & .social-link {
+      margin-left: 8rem;
+      height: 100%;
+    }
+  }
+}
+
+.theme--dark .social-links {
+  @apply items-center;
+  @apply justify-center;
+  width: 100%;
+  height: 20px;
+
+  & .social-link {
+    margin-left: 8rem;
+    height: 100%;
+  }
+
+  & .svg--fill {
+    fill: $white;
+  }
+}

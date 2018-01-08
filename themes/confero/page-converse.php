@@ -1,19 +1,6 @@
-<?php
-/**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package johnsonKreis
- */
+<?php get_header(); ?>
 
-get_header(); ?>
-  <main id="main" class="site-main" role="main">
+  <main id="main" class="main" role="main">
 
     <?php while ( have_posts() ) : the_post(); ?>
       <section>
@@ -54,7 +41,7 @@ get_header(); ?>
   </main><!-- #main -->
 
   <?php if ( is_active_sidebar( 'social-widget-area' ) ) : ?>
-  <div class="social-links">
+  <div class="social-links flex">
     <?php dynamic_sidebar( 'social-widget-area' ); ?>
   </div>
   <?php endif;
