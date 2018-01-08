@@ -13,15 +13,14 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'johnsonkreis' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'johnsonkreis' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'johnsonkreis' ), 'johnsonkreis', '<a href="https://automattic.com/" rel="designer">Underscores.me</a>' ); ?>
-		</div><!-- .site-info -->
+	<footer id="colophon" class="footer flex items-center" role="contentinfo">
+		<div class="footer__info flex">
+			<p class="footer__info__item">800.256.2270</p>
+			<p class="footer__info__item">concierge@christopherconfero.com</p>
+		</div>
 
 		<?php if ( is_active_sidebar( 'social-widget-area' ) ) : ?>
-			<div class="social-links">
+			<div class="footer__social social-links flex">
 				<?php dynamic_sidebar( 'social-widget-area' ); ?>
 			</div>
 		<?php endif; ?>

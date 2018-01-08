@@ -1,0 +1,39 @@
+.footer {
+  height: 15rem;
+  padding: 5rem 8rem;
+  width: 100%;
+
+  &__info {
+    flex: 1;
+
+    &__item {
+      margin-left: 4rem;
+    }
+
+    &__item:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+@include media('<650px') {
+  .footer {
+    flex-direction: column;
+    height: auto;
+    padding: 8rem;
+
+    &__info {
+      flex-direction: column;
+      text-align: center;
+      margin-bottom: 4rem;
+
+      &__item {
+        margin: 0 0 3rem 0;
+      }
+    }
+  }
+}
+
+.theme--dark .footer {
+  display: none;
+}
