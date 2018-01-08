@@ -25,7 +25,7 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'confero' ); ?></a>
 
 	<header id="masthead" class="header flex items-end" role="banner">
-		<div class="logo">
+		<div class="logo flex items-end">
 			<h1 class="logo--desktop"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Confero</a></h1>
 			<h1 class="logo--mobile"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 59.47">

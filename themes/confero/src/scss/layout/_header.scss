@@ -1,6 +1,6 @@
 .header {
-  height: 36rem;
-  padding: 10rem 8rem;
+  height: 32rem;
+  padding: 8rem;
 }
 
 .theme--dark {
@@ -38,7 +38,7 @@
   & .sub-menu {
     @apply list-reset;
     position: absolute;
-    top: calc(100% + 6rem);
+    top: calc(100% + 7.5rem);
     left: 0;
     min-width: 180px;
     padding: 6rem;
@@ -133,7 +133,6 @@
     padding: 6rem 8rem;
   }
   .nav__menu {
-  
     & .nav__menu__wrapper > .menu-item {
       margin-left: 8rem;
 
@@ -146,26 +145,26 @@
       top: calc(100% + 5.5rem);
 
       &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      height: 3rem;
-      width: 3rem;
-      top: -3rem;
-      border-left: 8px solid $primary-color;
-      border-bottom: 8px solid $primary-color;
-      border-top: 8px solid transparent;
-      border-right: 8px solid transparent;
-    }
+        content: '';
+        position: absolute;
+        left: 0;
+        height: 3rem;
+        width: 3rem;
+        top: -3rem;
+        border-left: 8px solid $primary-color;
+        border-bottom: 8px solid $primary-color;
+        border-top: 8px solid transparent;
+        border-right: 8px solid transparent;
+      }
 
-    &:after {
-      content: '';
-      position: absolute;
-      height: 6rem;
-      width: 100%;
-      top: -6rem;
-      left: 0;
-    }
+      &:after {
+        content: '';
+        position: absolute;
+        height: 6rem;
+        width: 100%;
+        top: -6rem;
+        left: 0;
+      }
     }
   }
 }
@@ -192,7 +191,7 @@
     height: calc(100vh - 19.5rem);
     overflow-y: scroll;
     overflow-x: hidden;
-    
+
     .nav__menu__wrapper {
       flex-direction: column;
 
