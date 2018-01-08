@@ -35,7 +35,7 @@
 			</a></h1>
 		</div><!-- .site-branding -->
 
-		<nav class="main-navigation" role="navigation">
+		<nav class="nav" role="navigation">
 			<div class="nav__toggle">
 				<button class="menu-toggle" aria-expanded="false">
 					<span></span>
