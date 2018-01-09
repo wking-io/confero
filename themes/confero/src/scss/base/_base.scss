@@ -18,3 +18,15 @@ button:active,
 button:focus {
   outline: none;
 }
+
+@include media('<950px') {
+  .main {
+    margin-top: 20rem;
+  }
+}
+
+@include media('<500px') {
+  .main {
+    margin-top: 15rem;
+  }
+}

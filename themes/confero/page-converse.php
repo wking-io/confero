@@ -2,23 +2,21 @@
 
   <main id="main" class="main" role="main">
 
-    <?php while ( have_posts() ) : the_post(); ?>
-      <section>
-        <h1><?php the_field('converse_heading'); ?></h1>
-        <p><?php the_field('converse_content'); ?></p>
+    <section class="contact">
+      <h1><?php the_field('converse_heading'); ?></h1>
+      <p><?php the_field('converse_content'); ?></p>
 
-        <?php if( have_rows('converse_options') ): ?>
-          <div>
-          <?php while ( have_rows('converse_options') ) : the_row(); ?>
+      <?php if( have_rows('converse_options') ): ?>
+        <div>
+        <?php while ( have_rows('converse_options') ) : the_row(); ?>
 
-            <h2><?php the_sub_field('converse_title'); ?></h2>
-            <p><?php the_sub_field('converse_info'); ?></p>
+          <h2><?php the_sub_field('converse_title'); ?></h2>
+          <p><?php the_sub_field('converse_info'); ?></p>
 
-          <?php endwhile; ?>
-          </div>
-        <?php endif; ?>
-      </section>
-    <?php endwhile; ?>
+        <?php endwhile; ?>
+        </div>
+      <?php endif; ?>
+    </section>
 
     <section class="tumblr-slider">
       <div class="slider">
