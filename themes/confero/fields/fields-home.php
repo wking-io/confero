@@ -1,7 +1,7 @@
 <?php
 
   function get_home_service_links() {
-    $links = array (
+    $links = array(
       '/services' => 'Services Page',
       '/portfolio' => 'Portfolio Page',
       '/portfolio/editorial' => 'Editorial Page',
@@ -13,7 +13,7 @@
   }
 
   function get_page_links() {
-    $links = array (
+    $links = array(
       0 => 'No link',
       '/services' => 'Services Page',
       '/portfolio' => 'Portfolio Page',
@@ -28,11 +28,11 @@
     return $links;
   }
 
-  acf_add_local_field_group(array (
+  acf_add_local_field_group(array(
     'key' => 'group_home',
     'title' => 'Home Fields',
-    'fields' => array (
-      array (
+    'fields' => array(
+      array(
         'key'          => 'field_hero_slides_desktop',
         'label'        => 'Hero Slides - Desktop',
         'name'         => 'hero_slides_desktop',
@@ -42,8 +42,8 @@
         'collapsed'    => true,
         'min'          => 1,
         'instructions' => 'Use the Add Slide button below add a new slides.',
-        'sub_fields'   => array (
-          array (
+        'sub_fields'   => array(
+          array(
             'key' => 'field_hero_slides_desktop_img',
             'label' => 'Slide Image',
             'name' => 'hero_slides_desktop_img',
@@ -51,7 +51,7 @@
             'return_format' => 'array',
             'mime_types' 		=> 'jpg, png',
           ),
-          array (
+          array(
             'key' => 'field_hero_slides_desktop_link',
             'label' => 'Slide Link',
             'name' => 'hero_slides_desktop_link',
@@ -61,7 +61,7 @@
           ),
         ),
       ),
-      array (
+      array(
         'key'          => 'field_hero_slides_mobile',
         'label'        => 'Hero Slides - Mobile',
         'name'         => 'hero_slides_mobile',
@@ -71,8 +71,8 @@
         'collapsed'    => true,
         'min'          => 1,
         'instructions' => 'Use the Add Slide button below add a new slides.',
-        'sub_fields'   => array (
-          array (
+        'sub_fields'   => array(
+          array(
             'key' => 'field_hero_slides_mobile_img',
             'label' => 'Slide Image',
             'name' => 'hero_slides_mobile_img',
@@ -80,7 +80,7 @@
             'return_format' => 'array',
             'mime_types' 		=> 'jpg, png',
           ),
-          array (
+          array(
             'key' => 'field_hero_slides_mobile_link',
             'label' => 'Slide Link',
             'name' => 'hero_slides_mobile_link',
@@ -90,7 +90,7 @@
           ),
         ),
       ),
-      array (
+      array(
         'key'          => 'field_home_service_tiles',
         'label'        => 'Service Tiles',
         'name'         => 'home_service_tiles',
@@ -101,8 +101,8 @@
         'min'          => 1,
         'max'          => 3,
         'instructions' => 'Using the Add Tile button below add a tile for each service.',
-        'sub_fields'   => array (
-          array (
+        'sub_fields'   => array(
+          array(
             'key' => 'field_home_service_img',
             'label' => 'Service Image',
             'name' => 'home_service_img',
@@ -110,7 +110,7 @@
             'return_format' => 'array',
             'mime_types' 		=> 'jpg, png',
           ),
-          array (
+          array(
             'key' => 'field_home_service_text',
             'label' => 'Service Text',
             'name' => 'home_service_text',
@@ -119,20 +119,20 @@
             'placeholder' => '',
             'instructions' => 'If you want to add text using your image just leave this field blank.',
           ),
-          array (
+          array(
             'key' => 'field_home_service_position',
             'label' => 'Service Text Position',
             'name' => 'home_service_position',
             'type'    => 'select',
             'instructions' => 'This dropdown moves the text to the different corners of the tile',
-            'choices' => array (
+            'choices' => array(
               'top-left' => 'Top - Left',
               'top-right' => 'Top - Right',
               'bottom-right' => 'Bottom - Right',
               'bottom-left' => 'Bottom - Left',
             ),
           ),
-          array (
+          array(
             'key' => 'field_home_service_link',
             'label' => 'Service Link',
             'name' => 'home_service_link',
@@ -143,9 +143,9 @@
         ),
       ),
     ),
-    'location' => array (
-      array (
-        array (
+    'location' => array(
+      array(
+        array(
           'param' => 'page_type',
           'operator' => '==',
           'value' => 'front_page',

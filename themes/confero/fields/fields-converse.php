@@ -1,10 +1,10 @@
 <?php
 
-  acf_add_local_field_group(array (
+  acf_add_local_field_group(array(
     'key' => 'group_converse',
     'title' => 'Converse Fields',
-    'fields' => array (
-      array (
+    'fields' => array(
+      array(
         'key' => 'field_converse_heading',
         'label' => 'Converse Heading',
         'name' => 'converse_heading',
@@ -12,7 +12,7 @@
         'default_value' => 'Converse',
         'placeholder' => 'Converse',
       ),
-      array (
+      array(
         'key' => 'field_converse_content',
         'label' => 'Converse Content',
         'name' => 'converse_content',
@@ -21,7 +21,7 @@
         'placeholder' => '',
         'new_lines' => '',
       ),
-      array (
+      array(
         'key'          => 'field_converse_options',
         'label'        => 'Contact Options',
         'name'         => 'converse_options',
@@ -32,8 +32,8 @@
         'min'          => 1,
         'max'          => 3,
         'instructions' => 'Using the Add Option button below add a section for each contact option you want to add',
-        'sub_fields'   => array (
-          array (
+        'sub_fields'   => array(
+          array(
             'key' => 'field_converse_title',
             'label' => 'Converse Option Title',
             'name' => 'converse_title',
@@ -42,7 +42,7 @@
             'placeholder' => '',
             'instructions' => 'Add the title of the option here',
           ),
-          array (
+          array(
             'key' => 'field_converse_info',
             'label' => 'Converse Option Info',
             'name' => 'converse_info',
@@ -54,9 +54,9 @@
         ),
       ),
     ),
-    'location' => array (
-      array (
-        array (
+    'location' => array(
+      array(
+        array(
           'param' => 'page',
           'operator' => '==',
           'value' => 62,

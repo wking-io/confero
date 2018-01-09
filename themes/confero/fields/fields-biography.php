@@ -1,10 +1,10 @@
 <?php
 
-  acf_add_local_field_group(array (
+  acf_add_local_field_group(array(
     'key' => 'group_biography',
     'title' => 'Biography Fields',
-    'fields' => array (
-      array (
+    'fields' => array(
+      array(
         'key' => 'field_biography_title',
         'label' => 'Biography Title',
         'name' => 'biography_title',
@@ -12,21 +12,37 @@
         'default_value' => '',
         'placeholder' => '',
       ),
-      array (
+      array(
         'key' => 'field_biography_content',
         'label' => 'Biography Content',
         'name' => 'biography_content',
         'type'    => 'textarea',
         'default_value' => '',
       ),
-      array (
+      array(
+        'key' => 'field_biography_content',
+        'label' => 'Biography Image',
+        'name' => 'biography_img',
+        'type'    => 'img',
+        'return_format' => 'array',
+        'mime_types' 		=> 'jpg, png',
+      ),
+      array(
         'key' => 'field_promo_video',
         'label' => 'Promo Video',
         'name' => 'promo_video',
         'type' => 'oembed',
         'instructions' => 'Paste the link from Vimeo here',
       ),
-      array (
+      array(
+        'key' => 'field_promo_video_bg',
+        'label' => 'Promo Background Image',
+        'name' => 'promo_video_bg',
+        'type'    => 'img',
+        'return_format' => 'array',
+        'mime_types' 		=> 'jpg, png',
+      ),
+      array(
         'key' => 'field_promo_video_title',
         'label' => 'Promo Video Title',
         'name' => 'promo_video_title',
@@ -34,21 +50,21 @@
         'default_value' => '',
         'placeholder' => '',
       ),
-      array (
+      array(
         'key' => 'field_promo_video_subtitle',
         'label' => 'Promo Video Subtitle',
         'name' => 'promo_video_subtitle',
         'type'    => 'text',
         'default_value' => '',
       ),
-      array (
+      array(
         'key' => 'field_promo_video_description',
         'label' => 'Promo Video Description',
         'name' => 'promo_video_description',
         'type'    => 'textarea',
         'default_value' => '',
       ),
-      array (
+      array(
         'key' => 'field_philosophy_title',
         'label' => 'Philosophy Title',
         'name' => 'philosophy_title',
@@ -56,14 +72,14 @@
         'default_value' => '',
         'placeholder' => '',
       ),
-      array (
+      array(
         'key' => 'field_philosophy_content',
         'label' => 'Philosophy Content',
         'name' => 'philosophy_content',
         'type'    => 'textarea',
         'default_value' => '',
       ),
-      array (
+      array(
         'key' => 'field_confero_steps',
         'label' => 'Confero Steps',
         'name' => 'confero_steps',
@@ -74,15 +90,15 @@
         'min'          => 1,
         'max'          => 5,
         'instructions' => 'Using the Add Step button below add a step for each step in your process.',
-        'sub_fields'   => array (
-          array (
+        'sub_fields'   => array(
+          array(
             'key' => 'field_step_title',
             'label' => 'Step Title',
             'name' => 'step_title',
             'type' => 'text',
             'placeholder' => '',
           ),
-          array (
+          array(
             'key' => 'field_step_content',
             'label' => 'Step Content',
             'name' => 'step_content',
@@ -92,9 +108,9 @@
         ),
       ),
     ),
-    'location' => array (
-      array (
-        array (
+    'location' => array(
+      array(
+        array(
           'param' => 'page',
           'operator' => '==',
           'value' => 19,

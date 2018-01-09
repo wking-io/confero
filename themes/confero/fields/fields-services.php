@@ -1,7 +1,7 @@
 <?php
 
   function get_service_links() {
-    $links = array (
+    $links = array(
       '/portfolio/editorial' => 'Editorial Page',
       '/portfolio/wedding' => 'Wedding Page',
       '/portfolio/social' => 'Social Page',
@@ -10,11 +10,11 @@
     return $links;
   }
 
-  acf_add_local_field_group(array (
+  acf_add_local_field_group(array(
     'key' => 'group_services',
     'title' => 'Services Fields',
-    'fields' => array (
-      array (
+    'fields' => array(
+      array(
         'key' => 'field_service_tiles',
         'label' => 'Service Tiles',
         'name' => 'service_tiles',
@@ -25,8 +25,8 @@
         'min'          => 1,
         'max'          => 3,
         'instructions' => 'Using the Add Tile button below add a tile for each service.',
-        'sub_fields'   => array (
-          array (
+        'sub_fields'   => array(
+          array(
             'key' => 'field_service_img',
             'label' => 'Service Image',
             'name' => 'service_img',
@@ -34,7 +34,7 @@
             'return_format' => 'array',
             'mime_types' 		=> 'jpg, png',
           ),
-          array (
+          array(
             'key' => 'field_service_title',
             'label' => 'Service Title',
             'name' => 'service_title',
@@ -42,7 +42,7 @@
             'default_value' => '',
             'placeholder' => '',
           ),
-          array (
+          array(
             'key' => 'field_service_link_url',
             'label' => 'Service Link URL',
             'name' => 'service_link_url',
@@ -50,7 +50,7 @@
             'instructions' => 'This dropdown lets you choose where the tile links to',
             'choices' => get_service_links(),
           ),
-          array (
+          array(
             'key' => 'field_service_link_text',
             'label' => 'Service Link Text',
             'name' => 'service_link_text',
@@ -59,7 +59,7 @@
             'default_value' => '',
             'placeholder' => '',
           ),
-          array (
+          array(
             'key' => 'field_service_description',
             'label' => 'Service Description',
             'name' => 'service_description',
@@ -69,9 +69,9 @@
         ),
       ),
     ),
-    'location' => array (
-      array (
-        array (
+    'location' => array(
+      array(
+        array(
           'param' => 'page',
           'operator' => '==',
           'value' => 34,
