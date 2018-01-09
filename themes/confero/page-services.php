@@ -4,7 +4,6 @@
 
       <section class="services">
         <?php if( have_rows('service_tiles') ): ?>
-          <div>
           <?php while ( have_rows('service_tiles') ) : the_row();
             $tile_img = get_sub_field('service_img');
             $tile_title = get_sub_field('service_title');
@@ -26,7 +25,6 @@
             </div>
 
           <?php endwhile; ?>
-          </div>
         <?php endif; ?>
       </section>
 

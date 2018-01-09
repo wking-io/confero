@@ -12,7 +12,8 @@
   -webkit-appearance: none;
   display: none;
 
-  &:active, &:focus &:visited {
+  &:active,
+  &:focus &:visited {
     outline: none;
     border: none;
   }
@@ -22,17 +23,18 @@
     position: absolute;
     height: 3px;
     width: 100%;
-    background: $primary-color;
+    background-color: $primary-color;
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
-    transition: all .2s cubic-bezier(0.0, 0.0, 0.2, 1);
+    transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
 
     &:first-child {
       top: 0;
     }
 
-    &:nth-child(2), &:nth-child(3) {
+    &:nth-child(2),
+    &:nth-child(3) {
       top: 8px;
       width: 75%;
       margin-left: 25%;
@@ -43,36 +45,39 @@
       width: 50%;
       margin-left: 50%;
     }
-
   }
 
-  &[aria-expanded=true] span {
-
+  &[aria-expanded='true'] span {
     &:first-child {
-			top: 18px;
-			width: 0%;
-			left: 50%;
-		}
+      top: 18px;
+      width: 0%;
+      left: 50%;
+      transition: none;
+    }
 
-		&:nth-child(2) {
-			transform: rotate(45deg);
+    &:nth-child(2) {
+      transform: rotate(45deg);
       width: 100%;
       margin: 0;
-		}
+    }
 
-		&:nth-child(3) {
-			transform: rotate(-45deg);
+    &:nth-child(3) {
+      transform: rotate(-45deg);
       width: 100%;
       margin: 0;
-		}
+    }
 
-		&:last-child {
-			top: 18px;
-			width: 0%;
-			left: 50%;
-		}
-
+    &:last-child {
+      top: 18px;
+      width: 0%;
+      left: 50%;
+      transition: none;
+    }
   }
+}
+
+.theme--dark .menu-toggle span {
+  background-color: $white;
 }
 
 @include media('<950px') {

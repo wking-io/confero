@@ -1,3 +1,5 @@
+import * as R from 'ramda';
+
 import '../scss/main.scss';
 import '../fonts/bd45538f-4200-4946-b177-02de8337032d.eot';
 import '../fonts/700cfd4c-3384-4654-abe1-aa1a6e8058e4.woff2';
@@ -21,10 +23,23 @@ import '../fonts/8edaed62-069c-4a3b-87f5-fc14b5cdaec3.ttf';
 import '../fonts/d5c40f0a-3098-4a2b-8cbb-84524c2a29bc.svg';
 
 import { initTumblrSlider, initHeroSlider } from './sliders';
+import { dom, toggleClassOnEvent, toggleAttrOnEvent } from './helpers';
+
+const { compose, head } = R;
 
 // Tumblr Slider Initialization
 const tumblrSliderWrapper = '.tumblr-slider';
 initTumblrSlider(tumblrSliderWrapper);
 
+// Hero Slider Initialization
 const heroSliderWrapper = '.hero-slider';
 initHeroSlider(heroSliderWrapper);
+
+// Toggle Nav
+const nav = dom('.nav');
+const navToggle = dom('.menu-toggle');
+const toggleNavOnEvent = toggleClassOnEvent(head(nav), 'nav--open');
+const toggleExpandedOnEvent = toggleAttrOnEvent(head(navToggle), 'aria-expanded');
+navToggle.forEach(el =>
+  el.addEventListener('click', compose(toggleExpandedOnEvent, toggleNavOnEvent)),
+);

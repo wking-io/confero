@@ -14,6 +14,19 @@ body {
   font-family: $sans-font;
 }
 
+body.theme--dark {
+  background-color: $primary-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
 button:active,
 button:focus {
   outline: none;
@@ -28,5 +41,15 @@ button:focus {
 @include media('<500px') {
   .main {
     margin-top: 15rem;
+  }
+}
+
+.container {
+  width: 90vw;
+  max-width: 1140px;
+  margin: 0 auto;
+
+  &--sm {
+    max-width: 800px;
   }
 }

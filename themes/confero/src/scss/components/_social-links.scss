@@ -42,10 +42,15 @@
   @apply justify-center;
   width: 100%;
   height: 20px;
+  margin-bottom: 10rem;
 
   & .social-link {
     margin-left: 8rem;
     height: 100%;
+
+    &:first-child {
+      margin-left: 0;
+    }
   }
 
   & .svg--fill {
