@@ -95,7 +95,7 @@ export function initStepsSlider(context) {
     adaptiveHeight: true,
   });
 
-  fancyNav(context);
+  // fancyNav(context);
 }
 
 export function destroySlider(context) {

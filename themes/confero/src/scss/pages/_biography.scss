@@ -4,6 +4,7 @@
   &__info {
     padding-right: 10rem;
     max-width: 680px;
+    flex: 1;
   }
 
   &__title {
@@ -15,7 +16,7 @@
 
   &__content {
     font-family: $serif-font;
-    line-height: 1.5;
+    line-height: 1.7;
     margin-bottom: 10rem;
 
     & > p {
@@ -105,7 +106,7 @@
 
     & p {
       margin-bottom: 5rem;
-      line-height: 1.5;
+      line-height: 1.7;
     }
   }
 }
@@ -127,12 +128,12 @@
 
     & > p {
       margin-bottom: 5rem;
-      line-height: 1.5;
+      line-height: 1.7;
     }
   }
 }
 
-.steps {
+.steps-slider {
   &__nav {
     list-style-type: none;
     margin: 0;
@@ -177,10 +178,91 @@
       transform: translateX(400%);
     }
   }
+
+  &__item {
+    padding: 20rem 0;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 5vw;
+    padding-right: 4vw;
+    width: calc((100% / 12) * 5);
+    line-height: 1.2;
+    margin-top: -1vw;
+  }
+
+  &__content {
+    font-family: $serif-font;
+    width: calc((100% / 12) * 7);
+
+    & > p {
+      margin-bottom: 5rem;
+      line-height: 1.7;
+    }
+  }
+}
+
+@include media('>1260px') {
+  .steps-slider {
+    &__title {
+      font-size: 16rem;
+    }
+  }
+}
+
+@include media('<950px') {
+  .biography {
+    padding-top: 2rem;
+
+    & .container {
+      flex-direction: column-reverse;
+    }
+
+    &__headshot {
+      margin-bottom: 10rem;
+    }
+
+    &__info {
+      max-width: none;
+      padding: 0;
+    }
+  }
+  .promo-video {
+    & .container {
+      flex-direction: column;
+    }
+
+    &__play {
+      padding: 10rem 0 25rem;
+    }
+  }
+
+  .philosophy {
+    &__content {
+      column-count: 1;
+    }
+  }
+
+  .steps-slider {
+    &__item {
+      flex-direction: column;
+    }
+
+    &__title {
+      width: 100%;
+      font-size: 9vw;
+      margin: 0 0 6rem 0;
+    }
+
+    &__content {
+      width: 100%;
+    }
+  }
 }
 
 @include media('<650px') {
-  .steps {
+  .steps-slider {
     &__nav {
       &__item {
         text-align: center;
@@ -192,6 +274,45 @@
           display: block;
         }
       }
+    }
+  }
+}
+
+@include media('<500px') {
+  .biography {
+    &__title {
+      font-size: 9rem;
+    }
+
+    &__content p {
+      font-size: 3.5rem;
+    }
+  }
+  .promo-video {
+    &__title {
+      font-size: 9rem;
+    }
+    &__subtitle {
+      font-size: 5rem;
+    }
+    &__description p {
+      font-size: 3.5rem;
+    }
+  }
+  .philosophy {
+    &__title {
+      font-size: 9rem;
+    }
+    &__content p {
+      font-size: 3.5rem;
+    }
+  }
+  .steps-slider {
+    &__title {
+      font-size: 11vw;
+    }
+    &__content p {
+      font-size: 3.5rem;
     }
   }
 }

@@ -33,8 +33,6 @@ if ( have_rows('confero_steps') ) :
 	endwhile;
 endif;
 
-error_log( print_r( $steps, true ) );
-
 ?>
 
   <main id="main" class="main" role="main">
@@ -77,19 +75,21 @@ error_log( print_r( $steps, true ) );
     </section>
 
     <?php if (! empty( $steps ) ) : ?>
-      <section class="steps">
+      <section class="steps-slider">
         <div class="container steps-slider">
-          <ul class="steps__nav flex" data-active="1">
+          <ul class="steps-slider__nav flex" data-active="1">
             <?php foreach ( $steps as $i => $step ) : ?>
-              <li class="steps__nav__item steps__nav__item--desktop"><?php echo 'Step ' . $step['num']; ?></li>
-              <li class="steps__nav__item steps__nav__item--mobile"><?php echo '0' . $i; ?></li>
+              <li class="steps-slider__nav__item steps-slider__nav__item--desktop"><?php echo 'Step ' . $step['num']; ?></li>
+              <li class="steps-slider__nav__item steps-slider__nav__item--mobile"><?php echo '0' . $i; ?></li>
             <?php endforeach; ?>
           </ul>
           <div class="slider">
             <?php foreach ( $steps as $step ) : ?>
-              <div class="steps-slider__content">
-                <h3 class="steps-slider__title"><?php echo $step['title']; ?></h3>
-                <div class="steps-slider__content"><?php echo $step['content']; ?></div>
+              <div>
+                <div class="steps-slider__item flex">
+                  <h3 class="steps-slider__title"><?php echo $step['title']; ?></h3>
+                  <div class="steps-slider__content"><?php echo $step['content']; ?></div>
+                </div>
               </div>
             <?php endforeach; ?>
           </div>
