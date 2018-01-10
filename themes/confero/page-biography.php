@@ -97,6 +97,12 @@ endif;
       </section>
     <?php endif; ?>
 
+    <section class="the-video">
+      <div class="container">
+        <div class="the-video__wrapper"><?php echo $promo_video; ?></div>
+      </div>
+    </section>
+
   </main><!-- #main -->
 
 <?php get_footer();
