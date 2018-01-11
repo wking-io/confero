@@ -25,7 +25,7 @@ import '../fonts/d5c40f0a-3098-4a2b-8cbb-84524c2a29bc.svg';
 import { initTumblrSlider, initHeroSlider, initStepsSlider } from './sliders';
 import { dom, toggleClassOnEvent, toggleAttrOnEvent } from './helpers';
 
-const { compose, head } = R;
+const { compose } = R;
 
 // Tumblr Slider Initialization
 const tumblrSliderWrapper = '.tumblr-slider';
@@ -42,8 +42,6 @@ initStepsSlider(stepSliderWrapper);
 // Toggle Nav
 const nav = dom('.nav');
 const navToggle = dom('.menu-toggle');
-const toggleNavOnEvent = toggleClassOnEvent(head(nav), 'nav--open');
-const toggleExpandedOnEvent = toggleAttrOnEvent(head(navToggle), 'aria-expanded');
-navToggle.forEach(el =>
-  el.addEventListener('click', compose(toggleExpandedOnEvent, toggleNavOnEvent)),
-);
+const toggleNavOnEvent = toggleClassOnEvent(nav, 'nav--open');
+const toggleExpandedOnEvent = toggleAttrOnEvent(navToggle, 'aria-expanded');
+navToggle.addEventListener('click', compose(toggleExpandedOnEvent, toggleNavOnEvent));

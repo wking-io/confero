@@ -14,15 +14,9 @@ $philosophy_title = get_field('philosophy_title');
 $philosophy_content = get_field('philosophy_content');
 
 $steps = array();
-$nums = array(
-  1 => 'one',
-  2 => 'two',
-  3 => 'three',
-  4 => 'four',
-  5 => 'five',
-);
+$nums = array( 'one', 'two', 'three', 'four', 'five' );
 
-$i = 1;
+$i = 0;
 
 if ( have_rows('confero_steps') ) :
   while ( have_rows('confero_steps') ) : the_row();
@@ -75,12 +69,12 @@ endif;
     </section>
 
     <?php if (! empty( $steps ) ) : ?>
-      <section class="steps-slider">
-        <div class="container steps-slider">
-          <ul class="steps-slider__nav flex" data-active="1">
+      <section class="steps-slider" data-active-slide="0">
+        <div class="container">
+          <ul class="steps-slider__nav flex">
             <?php foreach ( $steps as $i => $step ) : ?>
-              <li class="steps-slider__nav__item steps-slider__nav__item--desktop"><?php echo 'Step ' . $step['num']; ?></li>
-              <li class="steps-slider__nav__item steps-slider__nav__item--mobile"><?php echo '0' . $i; ?></li>
+              <li class="nav-item steps-slider__nav__item steps-slider__nav__item--desktop" data-slide-index="<?php echo $i; ?>"><?php echo 'Step ' . $step['num']; ?></li>
+              <li class="nav-item steps-slider__nav__item steps-slider__nav__item--mobile" data-slide-index="<?php echo $i; ?>"><?php echo '0' . ($i + 1); ?></li>
             <?php endforeach; ?>
           </ul>
           <div class="slider">

@@ -1,6 +1,18 @@
 import $ from 'jquery';
 import 'slick-carousel';
-import { classList } from './helpers';
+import * as R from 'ramda';
+import {
+  classList,
+  dom,
+  domAll,
+  setProp,
+  getProp,
+  findParent,
+  containsClass,
+  eventOn,
+} from './helpers';
+
+const { compose } = R;
 
 export function initTumblrSlider(context) {
   const loading = status => (e) => {
@@ -19,8 +31,8 @@ export function initTumblrSlider(context) {
     arrows: false,
     variableWidth: true,
     slidesToShow: 1,
-    nextArrow: document.querySelector(`${context} .slick-next`),
-    prevArrow: document.querySelector(`${context} .slick-prev`),
+    nextArrow: dom(`${context} .slick-next`),
+    prevArrow: dom(`${context} .slick-prev`),
     responsive: [
       {
         breakpoint: 800,
@@ -44,8 +56,8 @@ export function initHeroSlider(context) {
     autoplay: true,
     autoplaySpeed: 7500,
     adaptiveHeight: true,
-    nextArrow: document.querySelector(`${context} .slick-next`),
-    prevArrow: document.querySelector(`${context} .slick-prev`),
+    nextArrow: dom(`${context} .slick-next`),
+    prevArrow: dom(`${context} .slick-prev`),
   });
 
   $(`${context} .slider-prev`).click(() => $(`${context} .slider`).slick('slickPrev'));
@@ -53,34 +65,17 @@ export function initHeroSlider(context) {
 }
 
 const fancyNav = (context) => {
-  const navItems = Array.from(document.querySelectorAll('.fancy-nav__item')).map((item, index) => {
-    item.addEventListener('click', () => {
-      $(`${context} .slider__items`).slick('slickGoTo', index);
-    });
-
-    return item;
-  });
+  const goToSlide = (e) => {
+    $(`${context} .slider`).slick('slickGoTo', e.target.dataset.slideIndex);
+    return e;
+  };
+  eventOn('click', goToSlide, domAll('.nav-item'));
 
   // On before slide change
   /* eslint-disable eqeqeq */
-  $(`${context} .slider__items`).on('beforeChange', (event, slick, currentSlide, nextSlide) => {
-    navItems.map((item) => {
-      item.dataset.sliderState = 'waiting';
-      return true;
-    });
-    navItems[nextSlide].dataset.sliderState = 'current';
-
-    if (nextSlide == 0) {
-      navItems[3].dataset.sliderState = 'prev';
-    } else {
-      navItems[nextSlide - 1].dataset.sliderState = 'prev';
-    }
-
-    if (nextSlide == 3) {
-      navItems[0].dataset.sliderState = 'next';
-    } else {
-      navItems[nextSlide + 1].dataset.sliderState = 'next';
-    }
+  $(`${context} .slider`).on('beforeChange', (event, slick, currentSlide, nextSlide) => {
+    const parentEl = findParent(containsClass('steps-slider'), event.target);
+    setProp('activeSlide', nextSlide, getProp('dataset', parentEl));
   });
 };
 
@@ -91,11 +86,11 @@ export function initStepsSlider(context) {
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 7500,
+    autoplaySpeed: 10000,
     adaptiveHeight: true,
   });
 
-  // fancyNav(context);
+  fancyNav(context);
 }
 
 export function destroySlider(context) {
