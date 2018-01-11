@@ -35,7 +35,7 @@ endif;
         <div class="biography__info">
           <h2 class="biography__title"><?php echo $bio_title ?></h2>
           <div class="biography__content"><?php echo $bio_content; ?></div>
-          <button class="biography__btn btn btn--ghost">See Christopher Confero In Action</button>
+          <button class="biography__btn btn btn--ghost open-video">See Christopher Confero In Action</button>
         </div>
         <div class="biography__headshot">
           <img src="<?php echo $bio_img['url'] ?>" alt="" class="biography__headshot__img">
@@ -47,7 +47,7 @@ endif;
       <div class="promo-video__overlay"></div>
       <div class="container flex">
         <div class="promo-video__play">
-          <button class="promo-video__play__btn">
+          <button class="promo-video__play__btn open-video">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 82">
               <path fill-rule="evenodd" d="M68 41L0 82V0z"/>
             </svg>

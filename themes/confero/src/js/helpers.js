@@ -54,7 +54,7 @@ function _getAttr(attr, el) {
   return el;
 }
 
-const getAttr = curry((attr, el) => branch(partial(_getAttr, [attr]))(el));
+export const getAttr = curry((attr, el) => branch(partial(_getAttr, [attr]))(el));
 
 const _findParent = (pred, el) => {
   if (el === document.body) {
@@ -84,18 +84,8 @@ export const setProp = curry((prop, value, obj) => {
 });
 
 export const getProp = curry((prop, obj) => obj[prop] || false);
-export const flipAttr = (attr, el) => (getAttr(attr, el) === 'true' ? 'false' : 'true');
 
-export function toggleClassOnEvent(el, classname) {
-  return function loadedToggle(e) {
-    toggleClass(classname, el);
-    return e;
-  };
-}
-
-export function toggleAttrOnEvent(el, attr) {
-  return function loadedToggle(e) {
-    setAttr(attr, flipAttr(attr, el), el);
-    return e;
-  };
-}
+export const wrapEvent = (fn, args = []) => (e) => {
+  fn(...args);
+  return e;
+};

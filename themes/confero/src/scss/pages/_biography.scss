@@ -212,6 +212,10 @@
   right: 0;
   z-index: 999;
 
+  &--open {
+    display: block;
+  }
+
   & .container {
     position: absolute;
     top: 50%;

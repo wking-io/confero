@@ -23,7 +23,18 @@ import '../fonts/8edaed62-069c-4a3b-87f5-fc14b5cdaec3.ttf';
 import '../fonts/d5c40f0a-3098-4a2b-8cbb-84524c2a29bc.svg';
 
 import { initTumblrSlider, initHeroSlider, initStepsSlider } from './sliders';
-import { dom, toggleClassOnEvent, toggleAttrOnEvent } from './helpers';
+import {
+  dom,
+  eventOn,
+  domAll,
+  addClass,
+  removeClass,
+  containsClass,
+  wrapEvent,
+  toggleClass,
+  setAttr,
+  getAttr,
+} from './helpers';
 
 const { compose } = R;
 
@@ -42,6 +53,22 @@ initStepsSlider(stepSliderWrapper);
 // Toggle Nav
 const nav = dom('.nav');
 const navToggle = dom('.menu-toggle');
-const toggleNavOnEvent = toggleClassOnEvent(nav, 'nav--open');
-const toggleExpandedOnEvent = toggleAttrOnEvent(navToggle, 'aria-expanded');
-navToggle.addEventListener('click', compose(toggleExpandedOnEvent, toggleNavOnEvent));
+const toggleNavOnEvent = wrapEvent(toggleClass, [nav, 'nav--open']);
+const flipAttr = (attr, el) => (getAttr(attr, el) === 'true' ? 'false' : 'true');
+const toggleAttr = (el, attr) => setAttr(attr, flipAttr(attr, el), el);
+const toggleExpandedOnEvent = wrapEvent(toggleAttr, [navToggle, 'aria-expanded']);
+eventOn('click', compose(toggleExpandedOnEvent, toggleNavOnEvent), navToggle);
+
+// Open Video
+const showVideo = wrapEvent(addClass, ['the-video--open', dom('.the-video')]);
+eventOn('click', showVideo, domAll('.open-video'));
+
+// Close Video
+const hideVideo = (e) => {
+  if (containsClass('the-video', e.target)) {
+    removeClass('the-video--open', dom('.the-video'));
+    return e;
+  }
+  return e;
+};
+eventOn('click', hideVideo, dom('.the-video'));
