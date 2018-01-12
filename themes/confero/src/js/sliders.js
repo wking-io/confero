@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import 'slick-carousel';
-import * as R from 'ramda';
 import {
   classList,
   dom,
@@ -11,8 +10,6 @@ import {
   containsClass,
   eventOn,
 } from './helpers';
-
-const { compose } = R;
 
 export function initTumblrSlider(context) {
   const loading = status => (e) => {
@@ -56,8 +53,6 @@ export function initHeroSlider(context) {
     autoplay: true,
     autoplaySpeed: 7500,
     adaptiveHeight: true,
-    nextArrow: dom(`${context} .slick-next`),
-    prevArrow: dom(`${context} .slick-prev`),
   });
 
   $(`${context} .slider-prev`).click(() => $(`${context} .slider`).slick('slickPrev'));
@@ -95,18 +90,43 @@ export function initStepsSlider(context) {
 
 export function initPortfolioSlider(context) {
   $(`${context} .slider`).slick({
-    infinite: true,
     slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    arrows: false,
+    fade: true,
+    asNavFor: `${context} .slider-sub`,
+    responsive: [
+      {
+        breakpoint: 455,
+        settings: 'unslick',
+      },
+    ],
+  });
+
+  $(`${context} .slider-sub`).slick({
+    infinite: true,
+    slidesToShow: 3,
+    variableWidth: true,
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 1000,
-    adaptiveHeight: true,
-    nextArrow: dom(`${context} .slick-next`),
-    prevArrow: dom(`${context} .slick-prev`),
+    autoplaySpeed: 5000,
+    asNavFor: `${context} .slider`,
+    focusOnSelect: true,
+    responsive: [
+      {
+        breakpoint: 455,
+        settings: 'unslick',
+      },
+    ],
   });
+
+  $(`${context} .slider-prev`).click(() => $(`${context} .slider-sub`).slick('slickPrev'));
+  $(`${context} .slider-next`).click(() => $(`${context} .slider-sub`).slick('slickNext'));
 }
 
 export function destroySlider(context) {
   $(`${context} .slider`).slick('unslick');
+  $(`${context} .slider-sub`).slick('unslick');
 }

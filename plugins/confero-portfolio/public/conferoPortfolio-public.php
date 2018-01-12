@@ -154,16 +154,17 @@ class conferoPortfolio_Public {
 	function display_portfolio_meta( $atts ) {
 		$a = shortcode_atts( array(
 			'portfolio' => '123',
+			'classname' => 'portfolio',
 		), $atts );
 		$title = get_the_title( $a['portfolio'] );
 		$photo = get_field('photographer', $a['portfolio']);
 
 		ob_start(); ?>
-		<h1 class="portfolio__heading"><?php echo $title; ?></h1>
+		<h1 class="<?php echo $a['classname'] . '__heading'; ?>"><?php echo $title; ?></h1>
 		<?php if ($photo['photographer_website']) : ?>
-			<p class="portfolio__photo"><a class="portfolio__photo__link" href="<?php echo $photo['photographer_website']; ?>" target="_blank"><?php echo $photo['photographer_name']; ?></a></p>
+			<p class="<?php echo $a['classname'] . '__photo'; ?>"><a class="<?php echo $a['classname'] . '__photo__link'; ?>" href="<?php echo $photo['photographer_website']; ?>" target="_blank"><?php echo $photo['photographer_name']; ?></a></p>
 		<?php else:  ?>
-			<p><?php echo $photo['photographer_name']; ?></p>
+			<p class="<?php echo $a['classname'] . '__photo'; ?>"><?php echo $photo['photographer_name']; ?></p>
 		<?php endif; ?>
 		<?php return ob_get_clean();
 	}
@@ -179,14 +180,17 @@ class conferoPortfolio_Public {
 	function display_portfolio_images( $atts ) {
 		$a = shortcode_atts( array(
 			"portfolio" => '123',
+			"size" => 'portfolio',
+			"classname" => 'portfolio',
 		), $atts );
 		$images = get_field( 'event_images',  $a['portfolio'] );
+
 		ob_start();
-		foreach ( $images as $image ) : ?>
-			<div class="portfolio__item">
+		foreach ( $images as $image ) : error_log( $a['size'] );?>
+			<div class="<?php echo $a['classname'] . '__item'; ?>">
 				<img
-					class="portfolio__img"
-					src="<?php echo $image['url']; ?>" 
+					class="<?php echo $a['classname'] . '__img'; ?>"
+					src="<?php echo $image['sizes'][$a['size']]; ?>" 
 					alt="<?php echo $image['title'] ?>"
 				/>
 			</div>

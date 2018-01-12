@@ -1,0 +1,99 @@
+.portfolio-item {
+  position: relative;
+  padding: 12rem 0 20rem;
+
+  &__heading {
+    font-size: 11rem;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+    letter-spacing: 0.02rem;
+  }
+
+  &__photo {
+    margin-bottom: 8rem;
+    &__link {
+      color: $primary-color;
+      text-decoration: none;
+      font-size: 4.5rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  & .portfolio-slider {
+    position: relative;
+  }
+
+  & .slider {
+    width: calc((100% / 12) * 7);
+    position: relative;
+    z-index: 2;
+    background-color: $white;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  & .slider-secondary {
+    position: absolute;
+    bottom: 0;
+    left: calc(((100% / 12) * 7));
+    margin-left: -200px;
+
+    & .slider-arrows {
+      margin: 0 0 3rem calc(200px + 3rem);
+
+      & .slider-prev svg {
+        transform: rotate(180deg);
+        margin-right: 3rem;
+      }
+
+      & svg {
+        height: 5rem;
+      }
+    }
+
+    & .slick-slide {
+      width: 200px;
+      margin-right: 3rem;
+    }
+
+    & .slick-current {
+      opacity: 0;
+    }
+  }
+}
+
+@include media('<800px') {
+  .portfolio-item {
+    padding: 8rem 0 12rem;
+
+    & .slider {
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+    & .slider-secondary {
+      position: static;
+      display: flex;
+      flex-direction: column-reverse;
+
+      & .slider-sub {
+        margin-bottom: 4rem;
+      }
+    }
+  }
+}
+
+@include media ('<455px') {
+  .portfolio-item {
+    &__item {
+      margin-bottom: 4rem;
+    }
+    & .slider-secondary {
+      display: none;
+    }
+  }
+}
