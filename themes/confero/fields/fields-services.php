@@ -2,9 +2,9 @@
 
   function get_service_links() {
     $links = array(
-      '/portfolio/editorial' => 'Editorial Page',
-      '/portfolio/wedding' => 'Wedding Page',
-      '/portfolio/social' => 'Social Page',
+      '/portfolio/event/editorial' => 'Editorial Page',
+      '/portfolio/event/wedding' => 'Wedding Page',
+      '/portfolio/event/social' => 'Social Page',
     );
 
     return $links;

@@ -4,9 +4,9 @@
     $links = array(
       '/services' => 'Services Page',
       '/portfolio' => 'Portfolio Page',
-      '/portfolio/editorial' => 'Editorial Page',
-      '/portfolio/wedding' => 'Wedding Page',
-      '/portfolio/social' => 'Social Page',
+      '/portfolio/event/editorial' => 'Editorial Page',
+      '/portfolio/event/social' => 'Social Page',
+      '/portfolio/event/wedding' => 'Wedding Page',
     );
 
     return $links;
@@ -17,9 +17,9 @@
       0 => 'No link',
       '/services' => 'Services Page',
       '/portfolio' => 'Portfolio Page',
-      '/portfolio/editorial' => 'Editorial Page',
-      '/portfolio/wedding' => 'Wedding Page',
-      '/portfolio/social' => 'Social Page',
+      '/portfolio/event/editorial' => 'Editorial Page',
+      '/portfolio/event/wedding' => 'Wedding Page',
+      '/portfolio/event/social' => 'Social Page',
       '/media/publications' => 'Publications Page',
       '/media/films' => 'Films Page',
       '/converse' => 'Contact Page',

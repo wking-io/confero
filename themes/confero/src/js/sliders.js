@@ -93,6 +93,20 @@ export function initStepsSlider(context) {
   fancyNav(context);
 }
 
+export function initPortfolioSlider(context) {
+  $(`${context} .slider`).slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 1000,
+    adaptiveHeight: true,
+    nextArrow: dom(`${context} .slick-next`),
+    prevArrow: dom(`${context} .slick-prev`),
+  });
+}
+
 export function destroySlider(context) {
   $(`${context} .slider`).slick('unslick');
 }

@@ -2,6 +2,8 @@ import * as R from 'ramda';
 
 const { ifElse, map, curry, partial } = R;
 
+export const elExists = classname => document.querySelector(classname);
+
 const isElmNode = el => el && el.nodeType === 1;
 const isArray = a => Array.isArray(a);
 
@@ -50,8 +52,7 @@ function _setAttr(attr, val, el) {
 export const setAttr = curry((attr, val, el) => branch(partial(_setAttr, [attr, val]))(el));
 
 function _getAttr(attr, el) {
-  el.getAttribute(attr);
-  return el;
+  return el.getAttribute(attr);
 }
 
 export const getAttr = curry((attr, el) => branch(partial(_getAttr, [attr]))(el));

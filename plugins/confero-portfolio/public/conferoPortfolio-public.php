@@ -109,6 +109,9 @@ class conferoPortfolio_Public {
   * @return void
   */
   public function confero_register_portfolio_shortcodes() {
+		add_shortcode('portfolioTile', array($this, 'display_portfolio_tile'));
+		add_shortcode('portfolioMeta', array($this, 'display_portfolio_meta'));
+		add_shortcode('portfolioImages', array($this, 'display_portfolio_images'));
 	}
 
 	/**
@@ -121,32 +124,22 @@ class conferoPortfolio_Public {
   */
 	function display_portfolio_tile( $atts ) {
 		$a = shortcode_atts( array(
-			"portfolio" => '123',
+			'portfolio' => '123',
 		), $atts );
 
-		ob_start(); ?>
-		<a class="portfolio-tile" data-portfolio-id=""></a>
-		<?php return ob_get_clean();
-	}
-
-	/**
-  * Display project tile.
-  *
-  * @since 1.0.0
-  *
-  * @author Will King
-  * @return string Project tile markup
-  */
-	function display_portfolio_thumb( $atts ) {
-		$a = shortcode_atts( array(
-			"project" => '123',
-			"class" => 'title',
-		), $atts );
-		$title = get_the_title( $a['project'] );
-		$link = get_field('project_website', $a['project']);
+		$thumb = get_field('event_thumbnail', $a['portfolio']);
+		$title = get_the_title( $a['portfolio'] );
+		$link = get_the_permalink( $a['portfolio'] );
+		$location = get_field( 'event_location', $a['portfolio'] );
 
 		ob_start(); ?>
-		<h3 class="<?php echo $a['class']; ?>"><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h3>
+		<div class="tile" data-portfolio-id="<?php echo $a['portfolio']; ?>">
+			<a class="tile__link" href="<?php echo $link; ?>">
+				<img class="tile__thumb" src="<?php echo $thumb['sizes']['portfolio'] ?>" alt="<?php echo $title ?>">
+				<h2 class="tile__heading"><?php echo $title; ?></h2>
+				<p class="tile__subheading"><?php echo $location; ?></p>
+			</a>
+		</div>
 		<?php return ob_get_clean();
 	}
 
@@ -160,14 +153,18 @@ class conferoPortfolio_Public {
   */
 	function display_portfolio_meta( $atts ) {
 		$a = shortcode_atts( array(
-			"project" => '123',
-			"class" => 'title',
+			'portfolio' => '123',
 		), $atts );
-		$title = get_the_title( $a['project'] );
-		$link = get_field('project_website', $a['project']);
+		$title = get_the_title( $a['portfolio'] );
+		$photo = get_field('photographer', $a['portfolio']);
 
 		ob_start(); ?>
-		<h3 class="<?php echo $a['class']; ?>"><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h3>
+		<h1 class="portfolio__heading"><?php echo $title; ?></h1>
+		<?php if ($photo['photographer_website']) : ?>
+			<p class="portfolio__photo"><a class="portfolio__photo__link" href="<?php echo $photo['photographer_website']; ?>" target="_blank"><?php echo $photo['photographer_name']; ?></a></p>
+		<?php else:  ?>
+			<p><?php echo $photo['photographer_name']; ?></p>
+		<?php endif; ?>
 		<?php return ob_get_clean();
 	}
 
@@ -181,15 +178,14 @@ class conferoPortfolio_Public {
   */
 	function display_portfolio_images( $atts ) {
 		$a = shortcode_atts( array(
-			"project" => '123',
-			"class" => 'image',
+			"portfolio" => '123',
 		), $atts );
-		$images = get_field( 'project_images',  $a['project'] );
+		$images = get_field( 'event_images',  $a['portfolio'] );
 		ob_start();
 		foreach ( $images as $image ) : ?>
-			<div class="<?php echo $a['class']; ?>">
+			<div class="portfolio__item">
 				<img
-					class="<?php echo $a['class'] . '__img'; ?>"
+					class="portfolio__img"
 					src="<?php echo $image['url']; ?>" 
 					alt="<?php echo $image['title'] ?>"
 				/>

@@ -7,45 +7,42 @@
  * @package johnsonKreis
  */
 
+$portfolio_categories = get_terms('event-type');
 get_header(); ?>
+	<main id="main" class="main" role="main">
+	
+	<?php if ( have_posts() ) : ?>
+		<div class="container">
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-		
-		<?php
-		if ( have_posts() ) : ?>
+			<ul class="post-filter">
+				<li class="post-filter__item"><a class="post-filter__link post-filter__link--active" href="<?php echo home_url() . '/portfolio/event/'; ?>">All</a></li>
+				<?php if ( ! empty( $portfolio_categories ) ) : ?>
+					<?php foreach ( $portfolio_categories as $cat ) : ?>
+						<li class="post-filter__item"><a class="post-filter__link" href="<?php echo home_url() . '/portfolio/event/' . $cat->slug; ?>"><?php echo $cat->name; ?></a></li>
+					<?php endforeach; ?>
+				<?php endif; ?>
+			</ul>
 
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+			<section class="gallery flex">
+				<?php while ( have_posts() ) : the_post(); ?>
+					<?php echo do_shortcode('[portfolioTile portfolio="' . get_the_ID() . '"]'); ?>
+				<?php endwhile; ?>
+			</section>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+			<?php the_posts_navigation(array(
+				'prev_text' => '<button class="btn btn--ghost"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81.24 141.42"><polygon class="svg-fill" points="10.53 0 81.24 70.71 10.53 141.42 0 130.89 60.44 70.71 0.13 10.4 10.53 0"/></svg> Older Events</button>',
+				'next_text' => '<button class="btn btn--ghost"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81.24 141.42"><polygon class="svg-fill" points="10.53 0 81.24 70.71 10.53 141.42 0 130.89 60.44 70.71 0.13 10.4 10.53 0"/></svg> New Events</button>'
+			)); ?>
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+		</div>
 
-			endwhile;
+	<?php else : ?>
 
-			the_posts_navigation();
+		<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-		else :
+	<?php endif; ?>
 
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

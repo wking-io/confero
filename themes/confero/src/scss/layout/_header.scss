@@ -140,15 +140,11 @@
 @include media('<1040px') {
   .header {
     height: 20rem;
-    padding: 6rem 8rem;
+    padding: 6rem 5vw;
   }
   .nav__menu {
     & .nav__menu__wrapper > .menu-item {
       margin-left: 8rem;
-
-      & > a {
-        font-size: 6rem;
-      }
     }
 
     & .sub-menu {
@@ -186,8 +182,6 @@
 @include media('<950px') {
   .header {
     @apply items-center;
-    height: 20rem;
-    padding: 6rem 8rem;
     position: fixed;
     top: 0;
     left: 0;

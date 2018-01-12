@@ -140,6 +140,7 @@ class conferoPortfolio_Admin {
 			'query_var'          => true,
 			'rewrite'            => array(
 					'slug' => 'portfolio',
+					'with_front' => false,
 			),
 			'capability_type'    => 'post',
 			'has_archive'        => true,
@@ -178,7 +179,7 @@ function confero_register_portfolio_taxonomies() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
-		'rewrite'						=> array( 'slug' => 'portfolio', 'with_front' => false ),
+		'rewrite'						=> array( 'slug' => 'portfolio/event', 'with_front' => false ),
 	);
 
 	register_taxonomy( 'event-type', $this->products_cpt, $args );
@@ -242,8 +243,8 @@ function confero_register_portfolio_taxonomies() {
 				),
 				array(
 					'key'      => 'field_event_images',
-					'label'    => __( 'Project images for popup', $this->plugin_name ),
-					'name'     => 'project_images',
+					'label'    => __( 'Event Images For Slider', $this->plugin_name ),
+					'name'     => 'event_images',
 					'type'     			=> 'gallery',
 					'min'          	=> 1,
 				),

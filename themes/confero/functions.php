@@ -170,10 +170,27 @@ require_once get_template_directory() . '/fields/fields.php';
  *
  */
 function confero_add_google_fonts() {
-
-wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Merriweather', false );
+	wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Merriweather', false );
 }
 add_action( 'wp_enqueue_scripts', 'confero_add_google_fonts' );
+
+/**
+ * Set posts to show on CPTs
+ */
+function confero_change_posts_per_page( $query ) {
+    if ( is_admin() || ! $query->is_main_query() ) {
+       return;
+    }
+
+    if ( is_post_type_archive( 'confero_portfolio' ) ) {
+       $query->set( 'posts_per_page', 9 );
+		}
+		
+		if ( is_post_type_archive( 'confero_media' ) ) {
+			$query->set( 'posts_per_page', 6 );
+	 }
+}
+add_filter( 'pre_get_posts', 'confero_change_posts_per_page' );
 
 /**
  * Register new photo sizes.

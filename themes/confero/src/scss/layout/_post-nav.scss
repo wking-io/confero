@@ -1,0 +1,39 @@
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rem;
+
+  & a {
+    text-decoration: none;
+  }
+
+  & .nav-previous button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & svg {
+      height: 16px;
+      transform: rotate(180deg);
+      margin: 0 3rem 0 0;
+    }
+  }
+
+  & .nav-next button {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+
+    & svg {
+      height: 16px;
+      margin: 0 0 0 3rem;
+    }
+  }
+
+  & .btn:hover svg polygon {
+    fill: $white;
+  }
+}
+

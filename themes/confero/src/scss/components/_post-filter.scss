@@ -1,0 +1,36 @@
+.post-filter {
+  @apply list-reset;
+  display: flex;
+  padding: 8rem 0 16rem;
+
+  &__item {
+    font-family: $serif-font;
+    margin-right: 8rem;
+  }
+
+  &__link {
+    color: $primary-color;
+    text-decoration: none;
+    border-bottom: 1rem solid transparent;
+    padding-bottom: 2rem;
+
+    &--active {
+      border-bottom: 1rem solid #d8d8d8;
+    }
+
+    &:hover {
+      border-bottom: 1rem solid #d8d8d8;
+    }
+  }
+}
+
+@include media('<500px') {
+  .post-filter {
+    padding: 8rem 0;
+
+    &__item {
+      font-size: 3.5rem;
+      margin-right: 4rem;
+    }
+  }
+}
