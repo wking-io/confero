@@ -14,6 +14,10 @@ const config = {
   context: path.resolve(__dirname, 'src'),
   entry: {
     main: './js/main.js',
+    bio: './js/bio.js',
+    home: './js/home.js',
+    portfolio: './js/portfolio.js',
+    contact: './js/contact.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

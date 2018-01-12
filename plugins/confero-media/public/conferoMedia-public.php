@@ -109,44 +109,54 @@ class conferoMedia_Public {
   * @return void
   */
   public function confero_register_media_shortcodes() {
+		add_shortcode('filmTile', array($this, 'display_film_tile'));
+		add_shortcode('filmVideo', array($this, 'display_film_video'));
 	}
 
 	/**
-  * Display project tile.
+  * Display film tile.
   *
   * @since 1.0.0
   *
   * @author Will King
   * @return string Project tile markup
   */
-	function display_media_tile( $atts ) {
+	function display_film_tile( $atts ) {
 		$a = shortcode_atts( array(
-			"media" => '123',
+			'film' => '123',
 		), $atts );
 
+		$thumb = get_field('film_thumbnail', $a['film']);
+		$title = get_the_title( $a['film'] );
+		$location = get_field( 'film_location', $a['film'] );
+
 		ob_start(); ?>
-		<a class="media-tile" data-media-id=""></a>
+		<div class="tile" data-film-id="<?php echo $a['film']; ?>">
+			<a class="tile__link" href="#">
+				<img class="tile__thumb" src="<?php echo $thumb['sizes']['portfolio'] ?>" alt="<?php echo $title ?>">
+				<h2 class="tile__heading"><?php echo $title; ?></h2>
+				<p class="tile__subheading"><?php echo $location; ?></p>
+			</a>
+		</div>
 		<?php return ob_get_clean();
 	}
 
 	/**
-  * Display project tile.
+  * Display film video.
   *
   * @since 1.0.0
   *
   * @author Will King
   * @return string Project tile markup
   */
-	function display_media_thumb( $atts ) {
+	function display_film_video( $atts ) {
 		$a = shortcode_atts( array(
-			"media" => '123',
-			"class" => 'title',
+			'film' => '123',
 		), $atts );
-		$title = get_the_title( $a['media'] );
-		$link = get_field('media_url', $a['media']);
+		$film_embed = get_field('film_embed', $a['film'] );
 
 		ob_start(); ?>
-		<h3 class="<?php echo $a['class']; ?>"><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h3>
+		<div class="the-video__wrapper" data-film-overlay="<?php echo $a['film']; ?>"><?php echo $film_embed; ?></div>
 		<?php return ob_get_clean();
 	}
 

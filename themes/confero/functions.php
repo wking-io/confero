@@ -123,6 +123,24 @@ function confero_scripts() {
 
 	wp_enqueue_script('confero-main', get_template_directory_uri() . '/dist/main.bundle.js', array(), '1.0.0', true);
 
+	if (is_front_page()) {
+		wp_enqueue_script('confero-home', get_template_directory_uri() . '/dist/home.bundle.js', array(), '1.0.0', true);
+	}
+
+	if (is_page('biography')) {
+		wp_enqueue_script('confero-bio', get_template_directory_uri() . '/dist/bio.bundle.js', array(), '1.0.0', true);
+	}
+
+	if (is_page('converse')) {
+		wp_enqueue_script('confero-contact', get_template_directory_uri() . '/dist/contact.bundle.js', array(), '1.0.0', true);
+	}
+
+	if (is_singular('confero_portfolio')) {
+		wp_enqueue_script('confero-portfolio', get_template_directory_uri() . '/dist/portfolio.bundle.js', array(), '1.0.0', true);
+	}
+
+
+
 	// Default Underscore JS
 
 	wp_enqueue_script( 'confero-navigation', get_template_directory_uri() . '/src/js/navigation.js', array(), '20151215', true );

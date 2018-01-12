@@ -22,15 +22,9 @@ import '../fonts/3bd69eb9-2110-4d97-989e-99a659576659.woff';
 import '../fonts/8edaed62-069c-4a3b-87f5-fc14b5cdaec3.ttf';
 import '../fonts/d5c40f0a-3098-4a2b-8cbb-84524c2a29bc.svg';
 
-import { initTumblrSlider, initHeroSlider, initStepsSlider, initPortfolioSlider } from './sliders';
 import {
-  elExists,
   dom,
   eventOn,
-  domAll,
-  addClass,
-  removeClass,
-  containsClass,
   wrapEvent,
   toggleClass,
   setAttr,
@@ -38,22 +32,6 @@ import {
 } from './helpers';
 
 const { compose } = R;
-
-// Tumblr Slider Initialization
-const tumblrSliderWrapper = '.tumblr-slider';
-initTumblrSlider(tumblrSliderWrapper);
-
-// Hero Slider Initialization
-const heroSliderWrapper = '.hero-slider';
-initHeroSlider(heroSliderWrapper);
-
-// Step Slider Initialization
-const stepSliderWrapper = '.steps-slider';
-initStepsSlider(stepSliderWrapper);
-
-// Portfolio Slider Initialization
-const portfolioSliderWrapper = '.portfolio-slider';
-initPortfolioSlider(portfolioSliderWrapper);
 
 // Toggle Nav
 const nav = dom('.nav');
@@ -63,18 +41,3 @@ const flipAttr = (attr, el) => (getAttr(attr, el) === 'true' ? 'false' : 'true')
 const toggleAttr = (attr, el) => setAttr(attr, flipAttr(attr, el), el);
 const toggleExpandedOnEvent = wrapEvent(toggleAttr, ['aria-expanded', navToggle]);
 eventOn('click', compose(toggleExpandedOnEvent, toggleNavOnEvent), navToggle);
-
-// Open Video
-const showVideo = wrapEvent(addClass, ['the-video--open', dom('.the-video')]);
-eventOn('click', showVideo, domAll('.open-video'));
-
-// Close Video
-const hideVideo = (e) => {
-  if (containsClass('the-video', e.target)) {
-    removeClass('the-video--open', dom('.the-video'));
-    return e;
-  }
-  return e;
-};
-
-if (elExists('.the-video')) eventOn('click', hideVideo, dom('.the-video'));

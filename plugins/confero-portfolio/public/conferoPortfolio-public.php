@@ -115,7 +115,7 @@ class conferoPortfolio_Public {
 	}
 
 	/**
-  * Display project tile.
+  * Display portfolio tile.
   *
   * @since 1.0.0
   *
