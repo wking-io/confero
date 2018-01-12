@@ -129,7 +129,7 @@ function confero_scripts() {
 
 	if (is_page('biography')) {
 		wp_enqueue_script('confero-bio', get_template_directory_uri() . '/dist/bio.bundle.js', array(), '1.0.0', true);
-	}
+	}		
 
 	if (is_page('converse')) {
 		wp_enqueue_script('confero-contact', get_template_directory_uri() . '/dist/contact.bundle.js', array(), '1.0.0', true);
