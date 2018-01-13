@@ -7,7 +7,7 @@
  * @package johnsonKreis
  */
 
-$media_categories = get_terms('event-type');
+$media_categories = array_reverse( get_terms('media-type') );
 $film_ids = array();
 
 get_header(); ?>
@@ -37,7 +37,7 @@ get_header(); ?>
           'next_text' => '<button class="btn btn--ghost"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81.24 141.42"><polygon class="svg-fill" points="10.53 0 81.24 70.71 10.53 141.42 0 130.89 60.44 70.71 0.13 10.4 10.53 0"/></svg> Newer Films</button>'
         )); ?>
 
-        <section class="the-video">
+        <section class="the-video the-video--film">
           <div class="container">
             <?php foreach ( $film_ids as $id ) :
               echo do_shortcode('[filmVideo film="' . $id . '"]');

@@ -18,6 +18,7 @@ const config = {
     home: './js/home.js',
     portfolio: './js/portfolio.js',
     contact: './js/contact.js',
+    film: './js/film.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

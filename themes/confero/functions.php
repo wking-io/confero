@@ -139,6 +139,10 @@ function confero_scripts() {
 		wp_enqueue_script('confero-portfolio', get_template_directory_uri() . '/dist/portfolio.bundle.js', array(), '1.0.0', true);
 	}
 
+	if (is_tax('media-type', 'film')) {
+		wp_enqueue_script('confero-film', get_template_directory_uri() . '/dist/film.bundle.js', array(), '1.0.0', true);
+	}
+
 
 
 	// Default Underscore JS

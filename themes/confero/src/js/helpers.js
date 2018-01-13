@@ -90,3 +90,13 @@ export const wrapEvent = (fn, args = []) => (e) => {
   fn(...args);
   return e;
 };
+
+export const wrapEventIf = (pred, fn, args = []) => (e) => {
+  if (pred(e.target)) fn(...args);
+  return e;
+};
+
+export const trace = (val) => {
+  console.log(val);
+  return val;
+};

@@ -22,7 +22,6 @@ eventOn('click', showVideo, domAll('.open-video'));
 const hideVideo = (e) => {
   if (containsClass('the-video', e.target)) {
     removeClass('the-video--open', dom('.the-video'));
-    return e;
   }
   return e;
 };

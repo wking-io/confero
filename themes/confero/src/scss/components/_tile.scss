@@ -9,6 +9,7 @@
   &__link {
     color: $primary-color;
     text-decoration: none;
+    display: block;
 
     &:hover {
       text-decoration: underline;

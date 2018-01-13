@@ -36,4 +36,12 @@
       height: 100%;
     }
   }
+
+  &--film .the-video__wrapper {
+    display: none;
+  }
+
+  &--film .the-video__wrapper--open {
+    display: block;
+  }
 }

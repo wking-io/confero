@@ -131,7 +131,7 @@ class conferoMedia_Public {
 		$location = get_field( 'film_location', $a['film'] );
 
 		ob_start(); ?>
-		<div class="tile" data-film-id="<?php echo $a['film']; ?>">
+		<div class="tile open-video" data-film-id="<?php echo $a['film']; ?>">
 			<a class="tile__link" href="#">
 				<img class="tile__thumb" src="<?php echo $thumb['sizes']['portfolio'] ?>" alt="<?php echo $title ?>">
 				<h2 class="tile__heading"><?php echo $title; ?></h2>
@@ -156,7 +156,7 @@ class conferoMedia_Public {
 		$film_embed = get_field('film_embed', $a['film'] );
 
 		ob_start(); ?>
-		<div class="the-video__wrapper" data-film-overlay="<?php echo $a['film']; ?>"><?php echo $film_embed; ?></div>
+		<div class="the-video__wrapper" data-film-id="<?php echo $a['film']; ?>"><?php echo $film_embed; ?></div>
 		<?php return ob_get_clean();
 	}
 
