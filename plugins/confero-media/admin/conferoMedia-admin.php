@@ -178,7 +178,7 @@ function confero_register_media_taxonomies() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
-		'rewrite'						=> array( 'slug' => 'media', 'with_front' => false ),
+		'rewrite'						=> array( 'slug' => 'media/type', 'with_front' => false ),
 	);
 
 	register_taxonomy( 'media-type', $this->media_cpt, $args );

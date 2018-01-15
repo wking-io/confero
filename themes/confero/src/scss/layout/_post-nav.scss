@@ -37,3 +37,20 @@
   }
 }
 
+@include media('<600px') {
+  .nav-links {
+    flex-direction: column;
+
+    & button {
+      width: 100%;
+    }
+
+    & > * {
+      width: 100%;
+    }
+
+    & > *:first-child {
+      margin-bottom: 8rem;
+    }
+  }
+}

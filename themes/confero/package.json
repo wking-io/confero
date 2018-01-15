@@ -37,6 +37,7 @@
     "webpack": "^2.5.1"
   },
   "dependencies": {
+    "fluture": "8.0.0",
     "include-media": "^1.4.9",
     "jquery": "^3.2.1",
     "normalize.css": "^7.0.0",

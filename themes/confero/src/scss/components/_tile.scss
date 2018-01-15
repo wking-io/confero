@@ -11,8 +11,8 @@
     text-decoration: none;
     display: block;
 
-    &:hover {
-      text-decoration: underline;
+    &:hover span {
+      border-bottom: 1px solid $primary-color;
     }
   }
 

@@ -136,8 +136,8 @@ class conferoPortfolio_Public {
 		<div class="tile" data-portfolio-id="<?php echo $a['portfolio']; ?>">
 			<a class="tile__link" href="<?php echo $link; ?>">
 				<img class="tile__thumb" src="<?php echo $thumb['sizes']['portfolio'] ?>" alt="<?php echo $title ?>">
-				<h2 class="tile__heading"><?php echo $title; ?></h2>
-				<p class="tile__subheading"><?php echo $location; ?></p>
+				<h2 class="tile__heading"><span><?php echo $title; ?></span></h2>
+				<p class="tile__subheading"><span><?php echo $location; ?></span></p>
 			</a>
 		</div>
 		<?php return ob_get_clean();

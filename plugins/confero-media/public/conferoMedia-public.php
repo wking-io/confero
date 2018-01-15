@@ -111,6 +111,7 @@ class conferoMedia_Public {
   public function confero_register_media_shortcodes() {
 		add_shortcode('filmTile', array($this, 'display_film_tile'));
 		add_shortcode('filmVideo', array($this, 'display_film_video'));
+		add_shortcode('pubCover', array($this, 'display_pub_cover'));
 	}
 
 	/**
@@ -134,8 +135,8 @@ class conferoMedia_Public {
 		<div class="tile open-video" data-film-id="<?php echo $a['film']; ?>">
 			<a class="tile__link" href="#">
 				<img class="tile__thumb" src="<?php echo $thumb['sizes']['portfolio'] ?>" alt="<?php echo $title ?>">
-				<h2 class="tile__heading"><?php echo $title; ?></h2>
-				<p class="tile__subheading"><?php echo $location; ?></p>
+				<h2 class="tile__heading"><span><?php echo $title; ?></span></h2>
+				<p class="tile__subheading"><span><?php echo $location; ?></span></p>
 			</a>
 		</div>
 		<?php return ob_get_clean();
@@ -161,51 +162,32 @@ class conferoMedia_Public {
 	}
 
 	/**
-  * Display project meta info.
+  * Display publication cover photo with a link to the pdf spread.
   *
   * @since 1.0.0
   *
   * @author Will King
-  * @return string Project tile markup
+  * @return string Publication cover tile markup
   */
-	function display_media_meta( $atts ) {
+	function display_pub_cover( $atts ) {
 		$a = shortcode_atts( array(
-			"media" => '123',
-			"class" => 'title',
+			"pub" => '123',
 		), $atts );
-		$title = get_the_title( $a['project'] );
-		$link = get_field('project_website', $a['project']);
+		$cover = get_field( 'publication_cover', $a['pub'] );
+		$pdf = get_field('publication_spread', $a['pub']);
 
 		ob_start(); ?>
-		<h3 class="<?php echo $a['class']; ?>"><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h3>
+		<div class="pub__tile">
+      <a class="pub__link" href="<?php echo $pdf; ?>">
+        <div class="pub__overlay">
+          <p class="pub__overlay__text">View Spread</p>
+        </div>
+        <div class="pub__cover">
+          <img class="pub__cover__img" src="<?php echo $cover['url']; ?>" />
+        </div>
+      </a>
+    </div>
 		<?php return ob_get_clean();
-	}
-
-	/**
-  * Display portfolio images in successive divs.
-  *
-  * @since 1.0.0
-  *
-  * @author Will King
-  * @return string Portfolio Item Images
-  */
-	function display_media_images( $atts ) {
-		$a = shortcode_atts( array(
-			"project" => '123',
-			"class" => 'image',
-		), $atts );
-		$images = get_field( 'project_images',  $a['project'] );
-		ob_start();
-		foreach ( $images as $image ) : ?>
-			<div class="<?php echo $a['class']; ?>">
-				<img
-					class="<?php echo $a['class'] . '__img'; ?>"
-					src="<?php echo $image['url']; ?>" 
-					alt="<?php echo $image['title'] ?>"
-				/>
-			</div>
-		<?php endforeach;
-		return ob_get_clean();
 	}
 
 }

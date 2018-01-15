@@ -205,12 +205,12 @@ function confero_change_posts_per_page( $query ) {
     }
 
     if ( is_post_type_archive( 'confero_portfolio' ) ) {
-       $query->set( 'posts_per_page', 9 );
+       $query->set( 'posts_per_page', 3 );
 		}
 		
-		if ( is_post_type_archive( 'confero_media' ) ) {
-			$query->set( 'posts_per_page', 6 );
-	 }
+		if ( $query->query['media-type'] === 'publications' ) {
+			$query->set( 'posts_per_page', 12 );
+		}
 }
 add_filter( 'pre_get_posts', 'confero_change_posts_per_page' );
 

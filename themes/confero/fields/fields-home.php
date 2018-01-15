@@ -20,8 +20,8 @@
       '/portfolio/event/editorial' => 'Editorial Page',
       '/portfolio/event/wedding' => 'Wedding Page',
       '/portfolio/event/social' => 'Social Page',
-      '/media/publications' => 'Publications Page',
-      '/media/films' => 'Films Page',
+      '/media/type/publications' => 'Publications Page',
+      '/media/type/films' => 'Films Page',
       '/converse' => 'Contact Page',
     );
 
