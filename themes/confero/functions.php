@@ -208,7 +208,7 @@ function confero_change_posts_per_page( $query ) {
        $query->set( 'posts_per_page', 3 );
 		}
 		
-		if ( $query->query['media-type'] === 'publications' ) {
+		if ( array_key_exists('media-type', $query->query) && $query->query['media-type'] === 'publications' ) {
 			$query->set( 'posts_per_page', 12 );
 		}
 }
