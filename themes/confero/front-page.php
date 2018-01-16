@@ -16,10 +16,10 @@
 							<div class="hero-slider__item">
 								<?php if ($link) : ?>
 									<a class="hero-slider__link" href="<?php echo home_url() . $link; ?>">
-										<img src="<?php echo $img['url']; ?>" class="hero-slider__img" />
+										<img src="<?php echo $img['sizes']['full']; ?>" class="hero-slider__img" />
 									</a>
 								<?php else : ?>
-									<img src="<?php echo $img['url']; ?>" class="hero-slider__img" />
+									<img src="<?php echo $img['sizes']['full']; ?>" class="hero-slider__img" />
 								<?php endif; ?>
 							</div>
 						<?php endwhile; ?>
@@ -28,15 +28,15 @@
 					<div class="slider slider--mobile">
 						<?php while ( have_rows('hero_slides_mobile') ) : the_row();
 							$img = get_sub_field('hero_slides_mobile_img'); 
-							$link = get_sub_field('hero_slides_mobile_link'); ?>
+							$link = get_sub_field('hero_slides_mobile_link'); error_log( print_r( $img, true ) );?>
 
 							<div class="hero-slider__item">
 								<?php if ($link) : ?>
 									<a class="hero-slider__link" href="<?php echo home_url() . $link; ?>">
-										<img src="<?php echo $img['url']; ?>" class="hero-slider__img" />
+										<img src="<?php echo $img['sizes']['large']; ?>" class="hero-slider__img" />
 									</a>
 								<?php else : ?>
-									<img src="<?php echo $img['url']; ?>" class="hero-slider__img" />
+									<img src="<?php echo $img['sizes']['large']; ?>" class="hero-slider__img" />
 								<?php endif; ?>
 							</div>
 						<?php endwhile; ?>
@@ -67,7 +67,7 @@
 							$tile_link = get_sub_field('home_service_link'); ?>
 	
 							<div class="service-tile service-tile--compact">
-								<div class="service-tile__bg" <?php if ( ! empty( $tile_img ) ) { echo 'style="background-image: url(' . $tile_img['url'] . ');"'; } ?>></div>
+								<div class="service-tile__bg" <?php if ( ! empty( $tile_img ) ) { echo 'style="background-image: url(' . $tile_img['sizes']['large'] . ');"'; } ?>></div>
 								<a class="service-tile__link" href="<?php echo home_url() . $tile_link; ?>">
 									<?php if ( $tile_text ) : ?>
 										<h2 class="service-tile__title <?php echo ! empty( $tile_text_position ) ? $tile_text_position : 'top-left';  ?>"><?php echo $tile_text; ?></h2>

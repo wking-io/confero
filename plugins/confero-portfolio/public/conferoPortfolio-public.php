@@ -186,7 +186,7 @@ class conferoPortfolio_Public {
 		$images = get_field( 'event_images',  $a['portfolio'] );
 
 		ob_start();
-		foreach ( $images as $image ) : error_log( $a['size'] );?>
+		foreach ( $images as $image ) : ?>
 			<div class="<?php echo $a['classname'] . '__item'; ?>">
 				<img
 					class="<?php echo $a['classname'] . '__img'; ?>"

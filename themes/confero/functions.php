@@ -205,7 +205,7 @@ function confero_change_posts_per_page( $query ) {
     }
 
     if ( is_post_type_archive( 'confero_portfolio' ) ) {
-       $query->set( 'posts_per_page', 3 );
+       $query->set( 'posts_per_page', 9 );
 		}
 		
 		if ( array_key_exists('media-type', $query->query) && $query->query['media-type'] === 'publications' ) {
@@ -218,10 +218,11 @@ add_filter( 'pre_get_posts', 'confero_change_posts_per_page' );
  * Register new photo sizes.
  *
  */
-// function themeName_theme_setup() {
-//     add_image_size( 'new-size', 1600 );
-// }
-// add_action( 'after_setup_theme', 'themeName_theme_setup' );
+function confero_theme_setup() {
+		add_image_size( 'full', 2000 );
+		add_image_size( 'full-sm', 1440 );
+}
+add_action( 'after_setup_theme', 'confero_theme_setup' );
 
 /**
  * Register custom responsive sizes for images on site.

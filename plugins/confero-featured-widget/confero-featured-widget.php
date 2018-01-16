@@ -20,15 +20,17 @@ class confero_featured_widget extends WP_Widget {
   }
 
   public function widget( $args, $instance ) { ?>
-      <h2><?php echo $instance['title']; ?></h2>
-      <ul class="featured-in__list">
-        <?php if( have_rows('company_logos', 'widget_' . $args['widget_id']) ): ?>
-          <?php while ( have_rows('company_logos', 'widget_' . $args['widget_id']) ) : the_row(); ?>
-            <?php $img = get_sub_field('logo', 'widget_' . $args['widget_id']); ?>
-            <img class="featured-in__list__item" src="<?php echo $img['sizes']['featured-logo']; ?>" alt="<?php echo $img['title']; ?>" />
-          <?php endwhile; ?>
-        <?php endif; ?>
-      </ul>
+      <h2 class="featured-in__heading"><?php echo $instance['title']; ?></h2>
+      <div class="featured-in__list__wrapper">
+        <ul class="featured-in__list">
+          <?php if( have_rows('company_logos', 'widget_' . $args['widget_id']) ): ?>
+            <?php while ( have_rows('company_logos', 'widget_' . $args['widget_id']) ) : the_row(); ?>
+              <?php $img = get_sub_field('logo', 'widget_' . $args['widget_id']); ?>
+              <img class="featured-in__list__item" src="<?php echo $img['sizes']['featured-logo']; ?>" alt="<?php echo $img['title']; ?>" />
+            <?php endwhile; ?>
+          <?php endif; ?>
+        </ul>
+      </div>
       <?php
   }
 

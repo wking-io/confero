@@ -43,7 +43,7 @@ endif;
       </div>
     </section>
 
-    <section class="promo-video" <?php if ($promo_bg) { echo 'style="background-image: url(' . $promo_bg['url'] . ')" '; }?>>
+    <section class="promo-video" <?php if ($promo_bg) { echo 'style="background-image: url(' . $promo_bg['sizes']['full'] . ')" '; }?>>
       <div class="promo-video__overlay"></div>
       <div class="container flex">
         <div class="promo-video__play">

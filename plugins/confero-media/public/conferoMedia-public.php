@@ -178,7 +178,7 @@ class conferoMedia_Public {
 
 		ob_start(); ?>
 		<div class="pub__tile">
-      <a class="pub__link" href="<?php echo $pdf; ?>">
+      <a class="pub__link" href="<?php echo $pdf; ?>" target="_blank">
         <div class="pub__overlay">
           <p class="pub__overlay__text">View Spread</p>
         </div>

@@ -7,7 +7,7 @@
  * @package johnsonKreis
  */
 
-$portfolio_categories = get_terms('event-type');
+$portfolio_categories = array_reverse( get_terms('event-type') );
 get_header(); ?>
 	<main id="main" class="main" role="main">
 	

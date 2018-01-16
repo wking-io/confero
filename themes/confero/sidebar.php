@@ -13,5 +13,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 ?>
 
 <aside class="featured-in" role="complementary">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	<div class="container">
+		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	</div>
 </aside><!-- #secondary -->
