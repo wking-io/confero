@@ -1,6 +1,5 @@
 .hero-slider {
   width: 100vw;
-  height: calc(100vh - 32rem);
   position: relative;
 
   & * {
@@ -9,10 +8,18 @@
 
   & .slider {
     width: 100%;
-    height: 100%;
+  }
+  & .slider--desktop {
+    height: 50vw;
+  }
+
+  & .slider--tablet {
+    height: (126vw);
+    display: none;
   }
 
   & .slider--mobile {
+    height: 162vw;
     display: none;
   }
 
@@ -53,6 +60,54 @@
   }
 }
 
+@include media('<800px') {
+  .hero-slider {
+    & .slider--desktop {
+      display: none;
+    }
+
+    & .slider--tablet {
+      display: block;
+    }
+  }
+}
+
+@media (max-aspect-ratio: 3/4) {
+  .hero-slider {
+    & .slider--desktop {
+      display: none;
+    }
+
+    & .slider--tablet {
+      display: block;
+    }
+  }
+}
+
+@include media('<600px') {
+  .hero-slider {
+    & .slider--desktop {
+      display: none;
+    }
+
+    & .slider--tablet {
+      display: block;
+    }
+  }
+}
+
+@media (max-aspect-ratio: 9/16) {
+  .hero-slider {
+    & .slider--tablet {
+      display: none;
+    }
+
+    & .slider--mobile {
+      display: block;
+    }
+  }
+}
+
 .home-service-tiles {
   & .service-tile {
     width: calc(100% / 3);
@@ -68,10 +123,6 @@
       transition: all 0.2s ease-in-out;
     }
 
-    &:hover .service-tile__bg {
-      transform: scale(1.025);
-    }
-
     &__link {
       display: block;
       position: absolute;
@@ -80,11 +131,17 @@
       width: 100%;
       height: 100%;
       text-decoration: none;
-      background-image: linear-gradient(rgba(25, 25, 25, 0.65), rgba(25, 25, 25, 0.65));
+      background-image: linear-gradient(
+        rgba(25, 25, 25, 0.45),
+        rgba(25, 25, 25, 0.45)
+      );
       background-size: cover;
 
       &:hover {
-        background-image: linear-gradient(rgba(25, 25, 25, 0.45), rgba(25, 25, 25, 0.45));
+        background-image: linear-gradient(
+          rgba(25, 25, 25, 0.35),
+          rgba(25, 25, 25, 0.35)
+        );
       }
     }
 
@@ -98,13 +155,13 @@
   }
 }
 
-@include media('>800px') {
+@include media('>600px') {
   .home-service-tiles {
     @include aspect-ratio(5, 2);
   }
 }
 
-@include media('<800px') {
+@include media('<600px') {
   .home-service-tiles {
     padding: 6rem;
 
@@ -114,7 +171,7 @@
 
     & .service-tile {
       width: 100%;
-      height: 110rem;
+      height: calc((100vw - 12rem) * (4/3));
       margin-bottom: 6rem;
 
       &:last-child {

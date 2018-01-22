@@ -125,7 +125,8 @@ class tumblrImages_Public {
 	public function display_tumblrImages($atts) {
 		$a = shortcode_atts( array(
 			'wrapperclass' => 'tumblr-item',
-			'imgclass' => 'tumblr-img'
+			'imgclass' => 'tumblr-img',
+			'imgLink' => 'https://www.instagram.com/confero/',
 		), $atts );
 		// get number of slides
 		// get images
@@ -135,11 +136,13 @@ class tumblrImages_Public {
 		ob_start(); ?>
 		<?php foreach($images as $i => $img) : ?>
 			<div class="<?php echo $a['wrapperclass']; ?>" data-tumblr-image="<?php echo $i; ?>">
-				<img class="<?php echo $a['imgclass']; ?>" src="<?php echo $img['url']; ?>" alt="<?php echo $img['title']; ?>"/>
-				<div class="visually-hidden">
-					<h2><?php echo $img['title']; ?></h2>
-					<p><?php echo $img['caption'] ?></p>
-				</div>
+				<a href="<?php echo $a['imgLink'];?>" target="_blank">
+					<img class="<?php echo $a['imgclass']; ?>" src="<?php echo $img['url']; ?>" alt="<?php echo $img['title']; ?>"/>
+					<div class="visually-hidden">
+						<h2><?php echo $img['title']; ?></h2>
+						<p><?php echo $img['caption'] ?></p>
+					</div>
+				</a>
 			</div>
 		<?php endforeach; ?>
 		<?php return ob_get_clean();

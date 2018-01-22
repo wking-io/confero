@@ -7,39 +7,61 @@
 			<section class="hero">
 			<?php if( have_rows('hero_slides_desktop') || have_rows('hero_slides_mobile') ) : ?>
 				<div class="hero-slider">
+					<div class="slider--desktop">
+						<div class="slider content">
+							<?php while ( have_rows('hero_slides_desktop') ) : the_row(); 
+								$img = get_sub_field('hero_slides_desktop_img'); 
+								$link = get_sub_field('hero_slides_desktop_link'); ?>
 
-					<div class="slider slider--desktop">
-						<?php while ( have_rows('hero_slides_desktop') ) : the_row(); 
-							$img = get_sub_field('hero_slides_desktop_img'); 
-							$link = get_sub_field('hero_slides_desktop_link'); ?>
-
-							<div class="hero-slider__item">
-								<?php if ($link) : ?>
-									<a class="hero-slider__link" href="<?php echo home_url() . $link; ?>">
+								<div class="hero-slider__item">
+									<?php if ($link) : ?>
+										<a class="hero-slider__link" href="<?php echo home_url() . $link; ?>">
+											<img src="<?php echo $img['sizes']['full']; ?>" class="hero-slider__img" />
+										</a>
+									<?php else : ?>
 										<img src="<?php echo $img['sizes']['full']; ?>" class="hero-slider__img" />
-									</a>
-								<?php else : ?>
-									<img src="<?php echo $img['sizes']['full']; ?>" class="hero-slider__img" />
-								<?php endif; ?>
-							</div>
-						<?php endwhile; ?>
+									<?php endif; ?>
+								</div>
+							<?php endwhile; ?>
+						</div>
 					</div>
 
-					<div class="slider slider--mobile">
-						<?php while ( have_rows('hero_slides_mobile') ) : the_row();
-							$img = get_sub_field('hero_slides_mobile_img'); 
-							$link = get_sub_field('hero_slides_mobile_link'); error_log( print_r( $img, true ) );?>
+					<div class="slider--tablet">
+						<div class="slider content">
+							<?php while ( have_rows('hero_slides_tablet') ) : the_row(); 
+								$img = get_sub_field('hero_slides_tablet_img'); 
+								$link = get_sub_field('hero_slides_tablet_link'); ?>
 
-							<div class="hero-slider__item">
-								<?php if ($link) : ?>
-									<a class="hero-slider__link" href="<?php echo home_url() . $link; ?>">
-										<img src="<?php echo $img['sizes']['large']; ?>" class="hero-slider__img" />
-									</a>
-								<?php else : ?>
-									<img src="<?php echo $img['sizes']['large']; ?>" class="hero-slider__img" />
-								<?php endif; ?>
-							</div>
-						<?php endwhile; ?>
+								<div class="hero-slider__item">
+									<?php if ($link) : ?>
+										<a class="hero-slider__link" href="<?php echo home_url() . $link; ?>">
+											<img src="<?php echo $img['sizes']['full-sm']; ?>" class="hero-slider__img" />
+										</a>
+									<?php else : ?>
+										<img src="<?php echo $img['sizes']['full-sm']; ?>" class="hero-slider__img" />
+									<?php endif; ?>
+								</div>
+							<?php endwhile; ?>
+						</div>
+					</div>
+
+					<div class="slider--mobile">
+						<div class="content slider">
+							<?php while ( have_rows('hero_slides_mobile') ) : the_row();
+								$img = get_sub_field('hero_slides_mobile_img'); 
+								$link = get_sub_field('hero_slides_mobile_link'); error_log( print_r( $img, true ) );?>
+
+								<div class="hero-slider__item">
+									<?php if ($link) : ?>
+										<a class="hero-slider__link" href="<?php echo home_url() . $link; ?>">
+											<img src="<?php echo $img['sizes']['tablet']; ?>" class="hero-slider__img" />
+										</a>
+									<?php else : ?>
+										<img src="<?php echo $img['sizes']['tablet']; ?>" class="hero-slider__img" />
+									<?php endif; ?>
+								</div>
+							<?php endwhile; ?>
+						</div>
 					</div>
 
 					<button class="hero-slider__btn slider-prev" role="button">

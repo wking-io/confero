@@ -221,6 +221,7 @@ add_filter( 'pre_get_posts', 'confero_change_posts_per_page' );
 function confero_theme_setup() {
 		add_image_size( 'full', 2000 );
 		add_image_size( 'full-sm', 1440 );
+		add_image_size( 'tablet', 1000 );
 }
 add_action( 'after_setup_theme', 'confero_theme_setup' );
 

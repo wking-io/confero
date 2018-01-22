@@ -16,7 +16,7 @@
 	<footer id="colophon" class="footer flex items-center" role="contentinfo">
 		<div class="footer__info flex">
 			<p class="footer__info__item">800.256.2270</p>
-			<p class="footer__info__item">concierge@christopherconfero.com</p>
+			<p class="footer__info__item"><a href="emailto:concierge@christopherconfero.com">concierge@christopherconfero.com</a></p>
 		</div>
 
 		<?php if ( is_active_sidebar( 'social-widget-area' ) ) : ?>

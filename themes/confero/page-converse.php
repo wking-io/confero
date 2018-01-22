@@ -9,10 +9,17 @@
 
         <?php if( have_rows('converse_options') ): ?>
           <div class="converse__options flex">
-          <?php while ( have_rows('converse_options') ) : the_row(); ?>
+          <?php while ( have_rows('converse_options') ) : the_row(); 
+            $is_email = filter_var(get_sub_field('converse_info'), FILTER_VALIDATE_EMAIL); ?>
             <div class="converse__options__item">
               <h2 class="converse__options__title"><?php the_sub_field('converse_title'); ?></h2>
-              <p class="converse__options__info"><?php the_sub_field('converse_info'); ?></p>
+              <p class="converse__options__info">
+                <?php if ($is_email !== false) : ?>
+                  <a href="emailto:<?php the_sub_field('converse_info'); ?>"><?php the_sub_field('converse_info'); ?></a>
+                <?php else : ?>
+                  <?php the_sub_field('converse_info'); ?>
+                <?php endif; ?>
+              </p>
             </div>
 
           <?php endwhile; ?>
@@ -23,7 +30,7 @@
 
     <section class="tumblr-slider">
       <div class="slider">
-        <?php echo do_shortcode( '[tumblrImages wrapperclass="tumblr-slider__item" imgclass="tumblr-slider__img"]' ); ?>
+        <?php echo do_shortcode( '[tumblrImages wrapperclass="tumblr-slider__item" imgclass="tumblr-slider__img" imgLink="' . the_field('converse_slide_link') . '"]' ); ?>
       </div>
       <div class="tumblr-slider__nav slider-nav slider-nav--right">
         <button class="tumblr-slider__nav__btn slider-nav__btn slider-nav__btn slider-prev" role="button">

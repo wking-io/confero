@@ -53,6 +53,14 @@
           )
         ),
       ),
+      array(
+        'key' => 'field_converse_slide_link',
+        'label' => 'Converse Slider Link',
+        'name' => 'converse_slide_link',
+        'type' => 'url',
+        'default_value' => 'https://www.instagram.com/confero/',
+        'placeholder' => 'https://www.instagram.com/confero/',
+      ),
     ),
     'location' => array(
       array(

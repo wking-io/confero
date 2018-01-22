@@ -6,7 +6,7 @@
       '/portfolio' => 'Portfolio Page',
       '/portfolio/event/editorial' => 'Editorial Page',
       '/portfolio/event/social' => 'Social Page',
-      '/portfolio/event/wedding' => 'Wedding Page',
+      '/portfolio/event/weddings' => 'Weddings Page',
     );
 
     return $links;
@@ -18,7 +18,7 @@
       '/services' => 'Services Page',
       '/portfolio' => 'Portfolio Page',
       '/portfolio/event/editorial' => 'Editorial Page',
-      '/portfolio/event/wedding' => 'Wedding Page',
+      '/portfolio/event/weddings' => 'Weddings Page',
       '/portfolio/event/social' => 'Social Page',
       '/media/type/publications' => 'Publications Page',
       '/media/type/films' => 'Films Page',
@@ -55,6 +55,35 @@
             'key' => 'field_hero_slides_desktop_link',
             'label' => 'Slide Link',
             'name' => 'hero_slides_desktop_link',
+            'type'    => 'select',
+            'instructions' => 'This dropdown lets you choose where the slide links to',
+            'choices' => get_page_links(),
+          ),
+        ),
+      ),
+      array(
+        'key'          => 'field_hero_slides_tablet',
+        'label'        => 'Hero Slides - Tablet',
+        'name'         => 'hero_slides_tablet',
+        'type'         => 'repeater',
+        'layout'       => 'table',
+        'button_label' => 'Add Slide',
+        'collapsed'    => true,
+        'min'          => 1,
+        'instructions' => 'Use the Add Slide button below add a new slides.',
+        'sub_fields'   => array(
+          array(
+            'key' => 'field_hero_slides_tablet_img',
+            'label' => 'Slide Image',
+            'name' => 'hero_slides_tablet_img',
+            'type'    			=> 'image',
+            'return_format' => 'array',
+            'mime_types' 		=> 'jpg, png',
+          ),
+          array(
+            'key' => 'field_hero_slides_tablet_link',
+            'label' => 'Slide Link',
+            'name' => 'hero_slides_tablet_link',
             'type'    => 'select',
             'instructions' => 'This dropdown lets you choose where the slide links to',
             'choices' => get_page_links(),

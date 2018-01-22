@@ -52,7 +52,6 @@ export function initHeroSlider(context) {
     arrows: false,
     autoplay: true,
     autoplaySpeed: 7500,
-    adaptiveHeight: true,
   });
 
   $(`${context} .slider-prev`).click(() => $(`${context} .slider`).slick('slickPrev'));
