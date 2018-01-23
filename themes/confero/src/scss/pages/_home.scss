@@ -93,6 +93,33 @@
     & .slider--tablet {
       display: block;
     }
+
+    &__btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 11rem;
+      height: 11rem;
+      background-color: $white;
+      padding: 3rem 3rem 3rem 2.5rem;
+  
+      &.slider-next {
+        right: 0;
+        padding: 3rem 3rem 3rem 3.5rem;
+      }
+  
+      & svg {
+        height: 100%;
+      }
+  
+      &.slider-prev svg {
+        transform: rotate(180deg);
+      }
+  
+      & .svg-fill {
+        fill: $primary-color;
+      }
+    }
   }
 }
 

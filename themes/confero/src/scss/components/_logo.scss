@@ -64,4 +64,17 @@
       display: block;
     }
   }
+
+  .home .logo {
+    align-items: center;
+    &--desktop {
+      display: block;
+      font-size: 8rem;
+      letter-spacing: 0.15em;
+    }
+
+    &--mobile {
+      display: none;
+    }
+  }
 }

@@ -180,7 +180,7 @@ class conferoMedia_Public {
 		<div class="pub__tile">
       <a class="pub__link" href="<?php echo $pdf; ?>" target="_blank">
         <div class="pub__overlay">
-          <p class="pub__overlay__text">View Spread</p>
+          <p class="pub__overlay__text">see more</p>
         </div>
         <div class="pub__cover">
           <img class="pub__cover__img" src="<?php echo $cover['url']; ?>" />
