@@ -12,7 +12,7 @@
             $tile_link_url = get_sub_field('service_link_url'); ?>
 
             <div class="service-tile">
-              <img class="service-tile__bg" src="<?php echo $tile_img['sizes']['full-sm']; ?>" />
+              <img class="service-tile__bg" src="<?php echo $tile_img['sizes']['full']; ?>" />
               <div class="service-tile__overlay"></div>
               <div class="service-tile__info flex">
                 <div class="service-tile__header">
