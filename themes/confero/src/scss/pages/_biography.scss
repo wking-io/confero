@@ -16,6 +16,7 @@
 
   &__content {
     font-family: $serif-font;
+    font-size: 3.7rem;
     line-height: 1.7;
     margin-bottom: 10rem;
 
@@ -47,7 +48,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: linear-gradient(rgba(25, 25, 25, 0.65), rgba(25, 25, 25, 0.65));
+    background-image: linear-gradient(
+      rgba($primary-color, 0.85),
+      rgba($primary-color, 0.85)
+    );
     z-index: 0;
   }
 
@@ -101,6 +105,7 @@
 
   &__description {
     font-family: $serif-font;
+    font-size: 3.7rem;
 
     & p {
       margin-bottom: 5rem;
@@ -123,6 +128,7 @@
     column-gap: 8rem;
     column-width: 50%;
     font-family: $serif-font;
+    font-size: 3.7rem;
 
     & > p {
       margin-bottom: 5rem;
@@ -193,6 +199,7 @@
 
   &__content {
     font-family: $serif-font;
+    font-size: 3.7rem;
     width: calc((100% / 12) * 7);
 
     & > p {

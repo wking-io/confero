@@ -143,10 +143,6 @@
     padding: 6rem 5vw;
   }
   .nav__menu {
-    & .nav__menu__wrapper > .menu-item {
-      margin-left: 8rem;
-    }
-
     & .sub-menu {
       top: calc(100% + 5.5rem);
 
@@ -194,26 +190,30 @@
     position: fixed;
     right: 0;
     top: 20rem;
+    left: 100vw;
     padding: 10rem 8rem;
     width: 100vw;
     height: calc(100vh - 19.5rem);
     overflow-y: scroll;
     overflow-x: hidden;
     transition: all 0.3s cubic-bezier(0.19, 0.66, 0.67, 0.98);
-    transform: translateX(100vw);
 
     .nav--open & {
-      transform: translateX(0);
+      transform: translateX(-100vw);
     }
 
     .nav__menu__wrapper {
       flex-direction: column;
 
       & > .menu-item {
-        margin: 0 0 8rem;
+        margin: 0 0 7rem;
 
         &:last-child {
           margin-bottom: 0;
+        }
+
+        & > a {
+          font-size: 5.5rem;
         }
 
         & a {
@@ -269,10 +269,5 @@
   .nav__menu {
     top: 15rem;
     height: calc(100vh - 14.5rem);
-    & .nav__menu__wrapper {
-      & > .menu-item > a {
-        font-size: 5.5rem;
-      }
-    }
   }
 }

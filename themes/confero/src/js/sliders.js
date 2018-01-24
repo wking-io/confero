@@ -87,20 +87,33 @@ export function initStepsSlider(context) {
   fancyNav(context);
 }
 
+function unslickWhen(cond, slider, settings) {
+  if (cond()) {
+    if (slider.hasClass('slick-initialized')) {
+      slider.slick('unslick');
+    }
+  } else if (!slider.hasClass('slick-initialized')) {
+    slider.slick(settings);
+  }
+}
+
 export function initPortfolioSlider(context) {
-  $(`${context} .slider`).slick({
+  const $slickSlider = $(`${context} .slider`);
+
+  const settings = {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     arrows: false,
     fade: true,
     asNavFor: `${context} .slider-sub`,
-    responsive: [
-      {
-        breakpoint: 455,
-        settings: 'unslick',
-      },
-    ],
+  };
+
+  unslickWhen(() => $(window).width() < 455, $slickSlider, settings);
+
+  // reslick only if it's not slick()
+  $(window).on('resize', () => {
+    unslickWhen(() => $(window).width() < 455, $slickSlider, settings);
   });
 
   $(`${context} .slider-sub`).slick({
@@ -113,12 +126,6 @@ export function initPortfolioSlider(context) {
     autoplaySpeed: 5000,
     asNavFor: `${context} .slider`,
     focusOnSelect: true,
-    responsive: [
-      {
-        breakpoint: 455,
-        settings: 'unslick',
-      },
-    ],
   });
 
   $(`${context} .slider-prev`).click(() => $(`${context} .slider-sub`).slick('slickPrev'));

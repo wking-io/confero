@@ -102,20 +102,20 @@
       height: 11rem;
       background-color: $white;
       padding: 3rem 3rem 3rem 2.5rem;
-  
+
       &.slider-next {
         right: 0;
         padding: 3rem 3rem 3rem 3.5rem;
       }
-  
+
       & svg {
         height: 100%;
       }
-  
+
       &.slider-prev svg {
         transform: rotate(180deg);
       }
-  
+
       & .svg-fill {
         fill: $primary-color;
       }
@@ -159,15 +159,15 @@
       height: 100%;
       text-decoration: none;
       background-image: linear-gradient(
-        rgba(25, 25, 25, 0.45),
-        rgba(25, 25, 25, 0.45)
+        rgba($primary-color, 0.45),
+        rgba($primary-color, 0.45)
       );
       background-size: cover;
 
       &:hover {
         background-image: linear-gradient(
-          rgba(25, 25, 25, 0.35),
-          rgba(25, 25, 25, 0.35)
+          rgba($primary-color, 0.35),
+          rgba($primary-color, 0.35)
         );
       }
     }
@@ -184,7 +184,7 @@
 
 @include media('>600px') {
   .home-service-tiles {
-    @include aspect-ratio(5, 2);
+    @include aspect-ratio(3, 1);
   }
 }
 
@@ -198,7 +198,7 @@
 
     & .service-tile {
       width: 100%;
-      height: calc((100vw - 12rem) * (4/3));
+      height: calc((100vw - 12rem));
       margin-bottom: 6rem;
 
       &:last-child {

@@ -3,7 +3,7 @@
   function get_service_links() {
     $links = array(
       '/portfolio/event/editorial' => 'Editorial Page',
-      '/portfolio/event/wedding' => 'Wedding Page',
+      '/portfolio/event/weddings' => 'Weddings Page',
       '/portfolio/event/social' => 'Social Page',
     );
 

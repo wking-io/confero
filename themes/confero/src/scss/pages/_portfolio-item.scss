@@ -79,6 +79,7 @@
       position: static;
       display: flex;
       flex-direction: column-reverse;
+      margin-left: calc(-200px - 3rem);
 
       & .slider-sub {
         margin-bottom: 4rem;

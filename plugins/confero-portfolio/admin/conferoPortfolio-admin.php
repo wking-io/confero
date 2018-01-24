@@ -268,7 +268,7 @@ function confero_register_portfolio_taxonomies() {
    */
 	public function confero_register_portfolio_sizes() {
 		add_image_size( 'thumb', 510, 340, array( 'center', 'center' ) );
-		add_image_size( 'portfolio', 684, 456, array( 'center', 'center' ) );
+		add_image_size( 'portfolio', 900, 600, array( 'center', 'center' ) );
 		add_image_size( 'portfolio-s', 402, 268, array( 'center', 'center' ) );
 	}
 
