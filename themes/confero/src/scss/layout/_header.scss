@@ -1,6 +1,6 @@
 .header {
-  height: 32rem;
-  padding: 8rem;
+  height: 24rem;
+  padding: 6rem;
   background-color: $white;
 }
 
@@ -44,7 +44,7 @@
   & .sub-menu {
     @apply list-reset;
     position: absolute;
-    top: calc(100% + 7.5rem);
+    top: calc(100% + 5.5rem);
     left: 0;
     min-width: 180px;
     padding: 6rem;

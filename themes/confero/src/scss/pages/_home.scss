@@ -158,18 +158,7 @@
       width: 100%;
       height: 100%;
       text-decoration: none;
-      background-image: linear-gradient(
-        rgba($primary-color, 0.45),
-        rgba($primary-color, 0.45)
-      );
       background-size: cover;
-
-      &:hover {
-        background-image: linear-gradient(
-          rgba($primary-color, 0.35),
-          rgba($primary-color, 0.35)
-        );
-      }
     }
 
     &__title {
