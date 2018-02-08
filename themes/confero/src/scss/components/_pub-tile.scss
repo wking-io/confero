@@ -1,5 +1,6 @@
 .pub__tile {
   position: relative;
+  overflow: hidden;
 }
 
 .pub__cover {
@@ -16,7 +17,10 @@
 
 .pub__overlay {
   position: absolute;
-  background-image: linear-gradient(rgba($primary-color, 0.95), rgba($primary-color, 0.95));
+  background-image: linear-gradient(
+    rgba($primary-color, 0.95),
+    rgba($primary-color, 0.95)
+  );
   top: 0;
   left: 0;
   right: 0;

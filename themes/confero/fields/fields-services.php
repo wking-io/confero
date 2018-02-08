@@ -5,6 +5,7 @@
       '/portfolio/event/editorial' => 'Editorial Page',
       '/portfolio/event/weddings' => 'Weddings Page',
       '/portfolio/event/social' => 'Social Page',
+      '/portfolio/event/corporate' => 'Corporate Page',
     );
 
     return $links;
@@ -23,7 +24,6 @@
         'button_label' => 'Add Tile',
         'collapsed'    => true,
         'min'          => 1,
-        'max'          => 3,
         'instructions' => 'Using the Add Tile button below add a tile for each service.',
         'sub_fields'   => array(
           array(

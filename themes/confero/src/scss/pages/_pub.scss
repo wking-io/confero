@@ -29,7 +29,7 @@
 @include media('>=800px') {
   .pub {
     &__featured {
-      @include aspect-ratio(981, 457);
+      @include aspect-ratio(1000, 515);
     }
   }
 }

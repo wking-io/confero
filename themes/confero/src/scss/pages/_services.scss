@@ -5,6 +5,8 @@
     min-height: 460px;
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
     margin-bottom: 15rem;
 
     &:last-child {
