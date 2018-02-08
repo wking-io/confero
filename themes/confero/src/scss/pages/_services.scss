@@ -5,8 +5,6 @@
     min-height: 460px;
     position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
     margin-bottom: 15rem;
 
     &:last-child {
@@ -77,6 +75,13 @@
     &__link--mobile {
       display: none;
     }
+  }
+}
+
+@include media('>=900px') {
+  .service-tile {
+    display: flex;
+    align-items: center;
   }
 }
 

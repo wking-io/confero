@@ -211,6 +211,10 @@ function confero_change_posts_per_page( $query ) {
 		if ( array_key_exists('media-type', $query->query) && $query->query['media-type'] === 'publications' ) {
 			$query->set( 'posts_per_page', 12 );
 		}
+
+		if ( array_key_exists('media-type', $query->query) && $query->query['media-type'] === 'film' ) {
+			$query->set( 'posts_per_page', 12 );
+		}
 }
 add_filter( 'pre_get_posts', 'confero_change_posts_per_page' );
 
