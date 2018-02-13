@@ -140,7 +140,7 @@
 @include media('<1040px') {
   .header {
     height: 20rem;
-    padding: 6rem 5vw;
+    padding: 6rem 4vw;
   }
   .nav__menu {
     & .sub-menu {
@@ -206,14 +206,14 @@
       flex-direction: column;
 
       & > .menu-item {
-        margin: 0 0 7rem;
+        margin: 0 0 6rem;
 
         &:last-child {
           margin-bottom: 0;
         }
 
         & > a {
-          font-size: 5.5rem;
+          font-size: 5.25rem;
         }
 
         & a {
@@ -226,7 +226,7 @@
       @apply list-reset;
       position: static;
       min-width: 0;
-      padding: 6rem 0 4rem;
+      padding: 6rem 0 2rem;
       background-color: transparent;
       visibility: visible;
       opacity: 1;
@@ -240,7 +240,7 @@
       }
 
       & .menu-item {
-        margin-bottom: 5rem;
+        margin-bottom: 4rem;
 
         &:last-child {
           margin-bottom: 0;

@@ -37,13 +37,16 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 14rem;
-    height: 14rem;
+    width: 12rem;
+    height: 12rem;
     background-color: $white;
-    padding: 4rem;
+    padding: 3rem 3.75rem 3rem 3rem;
+    opacity: 0;
+    transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
 
     &.slider-next {
       right: 0;
+      padding: 3rem 3rem 3rem 3.75rem;
     }
 
     & svg {
@@ -58,6 +61,10 @@
       fill: $primary-color;
     }
   }
+
+  &:hover &__btn {
+    opacity: 1;
+  }
 }
 
 @include media('<800px') {
@@ -68,6 +75,10 @@
 
     & .slider--tablet {
       display: block;
+    }
+
+    &__btn {
+      display: none;
     }
   }
 }
@@ -148,6 +159,7 @@
       background-position: center;
       height: 100%;
       transition: all 0.2s ease-in-out;
+      width: 100%;
     }
 
     &__link {

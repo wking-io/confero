@@ -17,7 +17,9 @@ get_header(); ?>
           <li class="post-filter__item"><a class="post-filter__link" href="<?php echo home_url() . '/portfolio'; ?>">All</a></li>
           <?php if ( ! empty( $portfolio_categories ) ) : ?>
             <?php foreach ( $portfolio_categories as $cat ) : ?>
-              <li class="post-filter__item"><a class="post-filter__link <?php if ( $term === $cat->slug ) { echo 'post-filter__link--active';} ?>" href="<?php echo home_url() . '/portfolio/event/' . $cat->slug; ?>"><?php echo $cat->name; ?></a></li>
+              <?php if ($cat->name !== 'VIP') : ?>
+                <li class="post-filter__item"><a class="post-filter__link <?php if ( $term === $cat->slug ) { echo 'post-filter__link--active';} ?>" href="<?php echo home_url() . '/portfolio/event/' . $cat->slug; ?>"><?php echo $cat->name; ?></a></li>
+              <?php endif; ?>
             <?php endforeach; ?>
           <?php endif; ?>
         </ul>

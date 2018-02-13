@@ -14,10 +14,12 @@ get_header(); ?>
 	<div class="container">
 
 			<ul class="post-filter">
-				<li class="post-filter__item"><a class="post-filter__link post-filter__link--active" href="<?php echo home_url() . '/portfolio/event/'; ?>">All</a></li>
+				<li class="post-filter__item"><a class="post-filter__link post-filter__link--active" href="<?php echo home_url() . '/portfolio/'; ?>">All</a></li>
 				<?php if ( ! empty( $portfolio_categories ) ) : ?>
 					<?php foreach ( $portfolio_categories as $cat ) : ?>
-						<li class="post-filter__item"><a class="post-filter__link" href="<?php echo home_url() . '/portfolio/event/' . $cat->slug; ?>"><?php echo $cat->name; ?></a></li>
+						<?php if ($cat->name !== 'VIP') : ?>
+							<li class="post-filter__item"><a class="post-filter__link" href="<?php echo home_url() . '/portfolio/event/' . $cat->slug; ?>"><?php echo $cat->name; ?></a></li>
+						<?php endif; ?>
 					<?php endforeach; ?>
 				<?php endif; ?>
 			</ul>
@@ -26,7 +28,9 @@ get_header(); ?>
 
 			<section class="gallery flex">
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php echo do_shortcode('[portfolioTile portfolio="' . get_the_ID() . '"]'); ?>
+					<?php if (!has_term('VIP', 'event-type', get_the_ID())) : ?>
+						<?php echo do_shortcode('[portfolioTile portfolio="' . get_the_ID() . '"]'); ?>
+					<?php endif; ?>
 				<?php endwhile; ?>
 			</section>
 

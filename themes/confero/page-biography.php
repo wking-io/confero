@@ -64,7 +64,7 @@ endif;
     <section class="philosophy">
       <div class="container">
         <h2 class="philosophy__title"><?php echo $philosophy_title;?></h2>
-        <div class="philosophy__content"><?php echo $philosophy_content;?></div>
+        <div class="philosophy__content"><p><?php echo $philosophy_content;?></p></div>
       </div>
     </section>
 

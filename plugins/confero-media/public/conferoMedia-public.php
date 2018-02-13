@@ -154,10 +154,29 @@ class conferoMedia_Public {
 		$a = shortcode_atts( array(
 			'film' => '123',
 		), $atts );
-		$film_embed = get_field('film_embed', $a['film'] );
+		$iframe = get_field('film_embed', $a['film'] );
+
+		// use preg_match to find iframe src
+		preg_match('/src="(.+?)"/', $iframe, $matches);
+		$src = $matches[1];
+
+
+		// add extra params to iframe src
+		$params = array(
+				'color'    => '#ffffff',
+		);
+
+		$new_src = add_query_arg($params, $src);
+
+		$iframe = str_replace($src, $new_src, $iframe);
+
+		// add extra attributes to iframe html
+		$attributes = 'frameborder="0"';
+
+		$iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
 
 		ob_start(); ?>
-		<div class="the-video__wrapper" data-film-id="<?php echo $a['film']; ?>"><?php echo $film_embed; ?></div>
+		<div class="the-video__wrapper" data-film-id="<?php echo $a['film']; ?>"><?php echo $iframe; ?></div>
 		<?php return ob_get_clean();
 	}
 
