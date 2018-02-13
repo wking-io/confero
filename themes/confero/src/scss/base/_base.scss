@@ -53,3 +53,9 @@ button:focus {
     max-width: 800px;
   }
 }
+
+@include media('<500px') {
+  .main--event .container {
+    max-width: 325px;
+  }
+}

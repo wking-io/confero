@@ -29,3 +29,14 @@
     color: $primary-color;
   }
 }
+
+@include media('<800px') {
+  .main--event {
+    & .tile__heading {
+      font-size: 4.5rem;
+    }
+    & .tile__subheading {
+      font-size: 3rem;
+    }
+  }
+}

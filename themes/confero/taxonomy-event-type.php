@@ -9,7 +9,7 @@
 
 $portfolio_categories = array_reverse( get_terms('event-type') );
 get_header(); ?>
-  <main id="main" class="main" role="main">
+  <main id="main" class="main main--event" role="main">
 
     <div class="container">
 
