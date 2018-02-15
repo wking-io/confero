@@ -199,21 +199,43 @@ add_action( 'wp_enqueue_scripts', 'confero_add_google_fonts' );
 /**
  * Set posts to show on CPTs
  */
+function confero_hide_vip( $query ) {
+	if ( is_admin() || ! $query->is_main_query() ) {
+		 return;
+	}
+
+	if ( is_post_type_archive( 'confero_portfolio' ) ) {
+		$taxquery = array(
+				'taxonomy' => 'event-type',
+				'field' => 'slug',
+				'terms' => 'vip',
+				'operator'=> 'NOT IN'
+		);
+
+		$query->tax_query->queries[] = $taxquery;
+		$query->query_vars['tax_query'] = $query->tax_query->queries;
+	}
+}
+add_filter( 'pre_get_posts', 'confero_hide_vip' );
+
+/**
+ * Set post count to show on CPTs
+ */
 function confero_change_posts_per_page( $query ) {
     if ( is_admin() || ! $query->is_main_query() ) {
        return;
     }
 
     if ( is_post_type_archive( 'confero_portfolio' ) ) {
-       $query->set( 'posts_per_page', 9 );
+       $query->set( 'posts_per_page', 20 );
 		}
 		
 		if ( array_key_exists('media-type', $query->query) && $query->query['media-type'] === 'publications' ) {
-			$query->set( 'posts_per_page', 12 );
+			$query->set( 'posts_per_page', 20 );
 		}
 
 		if ( array_key_exists('media-type', $query->query) && $query->query['media-type'] === 'film' ) {
-			$query->set( 'posts_per_page', 12 );
+			$query->set( 'posts_per_page', 20 );
 		}
 }
 add_filter( 'pre_get_posts', 'confero_change_posts_per_page' );

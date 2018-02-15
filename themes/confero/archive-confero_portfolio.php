@@ -28,9 +28,7 @@ get_header(); ?>
 
 			<section class="gallery flex">
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php if (!has_term('VIP', 'event-type', get_the_ID())) : ?>
 						<?php echo do_shortcode('[portfolioTile portfolio="' . get_the_ID() . '"]'); ?>
-					<?php endif; ?>
 				<?php endwhile; ?>
 			</section>
 
