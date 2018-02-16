@@ -3,25 +3,25 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin: 0 -2vw 12rem 0;
+    margin: 0 -1.25vw 12rem 0;
 
     & > * {
-      width: calc(25% - 2vw);
-      margin: 0 2vw calc(2vw - 1rem) 0;
+      width: calc(25% - 1.25vw);
+      margin: 0 1.25vw 1.25vw 0;
     }
   }
 
   &__featured {
     width: 100%;
-    margin: 0 2vw calc(2vw - 1rem) 0;
+    margin: 0 1.25vw calc(1.25vw - 1rem) 0;
 
     & .content {
       display: flex;
     }
 
     &__sub {
-      margin: 0 2vw;
-      width: 17.5vw;
+      margin: 0 1.25vw;
+      width: 18.2vw;
     }
   }
 }
@@ -29,7 +29,7 @@
 @include media('>=800px') {
   .pub {
     &__featured {
-      @include aspect-ratio(1000, 515);
+      @include aspect-ratio(1000, 525);
     }
   }
 }

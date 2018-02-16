@@ -208,7 +208,7 @@ function confero_hide_vip( $query ) {
 		$taxquery = array(
 				'taxonomy' => 'event-type',
 				'field' => 'slug',
-				'terms' => 'vip',
+				'terms' => ['vip', 'christopher'],
 				'operator'=> 'NOT IN'
 		);
 
@@ -227,15 +227,15 @@ function confero_change_posts_per_page( $query ) {
     }
 
     if ( is_post_type_archive( 'confero_portfolio' ) ) {
-       $query->set( 'posts_per_page', 20 );
+       $query->set( 'posts_per_page', -1 );
 		}
 		
-		if ( array_key_exists('media-type', $query->query) && $query->query['media-type'] === 'publications' ) {
-			$query->set( 'posts_per_page', 20 );
+		if ( array_key_exists('media-type', $query->query) && $query->query['media-type'] === 'print' ) {
+			$query->set( 'posts_per_page', -1 );
 		}
 
 		if ( array_key_exists('media-type', $query->query) && $query->query['media-type'] === 'film' ) {
-			$query->set( 'posts_per_page', 20 );
+			$query->set( 'posts_per_page', -1 );
 		}
 }
 add_filter( 'pre_get_posts', 'confero_change_posts_per_page' );

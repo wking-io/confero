@@ -17,7 +17,7 @@ get_header(); ?>
 				<li class="post-filter__item"><a class="post-filter__link post-filter__link--active" href="<?php echo home_url() . '/portfolio/'; ?>">All</a></li>
 				<?php if ( ! empty( $portfolio_categories ) ) : ?>
 					<?php foreach ( $portfolio_categories as $cat ) : ?>
-						<?php if ($cat->name !== 'VIP') : ?>
+						<?php if ($cat->slug !== 'vip' && $cat->slug !== 'christopher') : ?>
 							<li class="post-filter__item"><a class="post-filter__link" href="<?php echo home_url() . '/portfolio/event/' . $cat->slug; ?>"><?php echo $cat->name; ?></a></li>
 						<?php endif; ?>
 					<?php endforeach; ?>

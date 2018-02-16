@@ -80,7 +80,7 @@
         'name' => 'philosophy_content',
         'type'    => 'textarea',
         'default_value' => '',
-        'new_lines' => 'br',
+        'new_lines' => 'wpautop',
       ),
       array(
         'key' => 'field_confero_steps',

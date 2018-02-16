@@ -6,6 +6,10 @@
     display: block;
     height: 100%;
 
+    &--pinterest {
+      margin-left: 4rem;
+    }
+
     &:first-child {
       margin-left: 0;
     }

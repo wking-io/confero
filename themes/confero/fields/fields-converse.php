@@ -30,18 +30,8 @@
         'button_label' => 'Add Option',
         'collapsed'    => true,
         'min'          => 1,
-        'max'          => 3,
         'instructions' => 'Using the Add Option button below add a section for each contact option you want to add',
         'sub_fields'   => array(
-          array(
-            'key' => 'field_converse_title',
-            'label' => 'Converse Option Title',
-            'name' => 'converse_title',
-            'type' => 'text',
-            'default_value' => '',
-            'placeholder' => '',
-            'instructions' => 'Add the title of the option here',
-          ),
           array(
             'key' => 'field_converse_info',
             'label' => 'Converse Option Info',

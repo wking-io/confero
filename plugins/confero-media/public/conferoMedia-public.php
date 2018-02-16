@@ -134,9 +134,15 @@ class conferoMedia_Public {
 		ob_start(); ?>
 		<div class="tile open-video" data-film-id="<?php echo $a['film']; ?>">
 			<a class="tile__link" href="#">
-				<img class="tile__thumb" src="<?php echo $thumb['sizes']['portfolio'] ?>" alt="<?php echo $title ?>">
+				<div class="tile__thumb--wrapper">
+					<div class="tile__overlay">
+						<svg class="tile__overlay__play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 82">
+							<path fill="#fff" fill-rule="evenodd" d="M68 41L0 82V0z"/>
+						</svg>
+					</div>
+					<img class="tile__thumb" src="<?php echo $thumb['sizes']['portfolio'] ?>" alt="<?php echo $title ?>">
+				</div>
 				<h2 class="tile__heading"><span><?php echo $title; ?></span></h2>
-				<p class="tile__subheading"><span><?php echo $location; ?></span></p>
 			</a>
 		</div>
 		<?php return ob_get_clean();
@@ -154,29 +160,10 @@ class conferoMedia_Public {
 		$a = shortcode_atts( array(
 			'film' => '123',
 		), $atts );
-		$iframe = get_field('film_embed', $a['film'] );
-
-		// use preg_match to find iframe src
-		preg_match('/src="(.+?)"/', $iframe, $matches);
-		$src = $matches[1];
-
-
-		// add extra params to iframe src
-		$params = array(
-				'color'    => '#ffffff',
-		);
-
-		$new_src = add_query_arg($params, $src);
-
-		$iframe = str_replace($src, $new_src, $iframe);
-
-		// add extra attributes to iframe html
-		$attributes = 'frameborder="0"';
-
-		$iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+		$video = get_field('film_embed', $a['film'] );
 
 		ob_start(); ?>
-		<div class="the-video__wrapper" data-film-id="<?php echo $a['film']; ?>"><?php echo $iframe; ?></div>
+		<div class="the-video__wrapper" data-film-id="<?php echo $a['film']; ?>"><?php echo $video; ?></div>
 		<?php return ob_get_clean();
 	}
 
@@ -199,7 +186,7 @@ class conferoMedia_Public {
 		<div class="pub__tile">
       <a class="pub__link" href="<?php echo $pdf; ?>" target="_blank">
         <div class="pub__overlay">
-          <p class="pub__overlay__text">see more</p>
+          <p class="pub__overlay__text">view full story</p>
         </div>
         <div class="pub__cover">
           <img class="pub__cover__img" src="<?php echo $cover['url']; ?>" />

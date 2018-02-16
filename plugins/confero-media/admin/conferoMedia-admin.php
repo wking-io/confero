@@ -255,21 +255,6 @@ function confero_register_media_taxonomies() {
 					'mime_types' => 'pdf',
 				),
 				array(
-					'key' => 'field_film_location',
-					'label' => 'Film Location',
-					'name' => 'film_location',
-					'type' => 'text',
-					'conditional_logic' => array(
-						array(
-							array(
-								'field' => 'field_media_type',
-								'operator' => '==',
-								'value' => 'film',
-							),
-						),
-					),
-				),
-				array(
 					'key' => 'field_film_thumbnail',
 					'label' => 'Film Thumbnail',
 					'name' => 'film_thumbnail',

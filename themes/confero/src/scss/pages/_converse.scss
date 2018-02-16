@@ -1,7 +1,15 @@
 .converse {
-  text-align: center;
+  text-align: left;
   color: $white;
-  padding: 25rem 0;
+  padding: 15rem 0 8rem;
+
+  & .container {
+    display: flex;
+  }
+
+  & .container > * {
+    flex: 1;
+  }
 
   &__heading {
     font-size: 10rem;
@@ -10,17 +18,19 @@
   }
 
   &__content {
-    font-family: $serif-font;
-    font-size: 3.7rem;
+    font-size: 5.5rem;
     line-height: 1.5;
-    margin-bottom: 8rem;
+    margin-bottom: 5rem;
   }
 
   &__options {
     @apply justify-between;
 
     &__item {
-      width: calc(100% / 3);
+      width: 100%;
+      margin-bottom: 4rem;
+      font-size: 3.5rem;
+      font-family: $serif-font;
 
       & a {
         color: $white;
@@ -42,6 +52,15 @@
 @include media('<950px') {
   .converse {
     padding: 15rem 0;
+
+    & .container {
+      flex-direction: column;
+    }
+
+    & .container > * {
+      flex: 1;
+    }
+
     &__options {
       flex-direction: column;
       align-items: center;

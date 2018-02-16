@@ -1,42 +1,69 @@
 .tile {
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
   &__thumb {
     width: 100%;
     height: auto;
-    margin: 0 0 3rem;
+    margin: 0;
+    padding: 0;
+    display: block;
+
+    &--wrapper {
+      position: relative;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba($primary-color, 0.65);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+
+    &__play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 14%;
+      height: auto;
+      margin: 0 auto;
+    }
+  }
+
+  &:hover &__overlay {
+    opacity: 1;
   }
 
   &__link {
     color: $primary-color;
     text-decoration: none;
     display: block;
-
-    &:hover span {
-      border-bottom: 1px solid $primary-color;
-    }
   }
 
   &__heading {
-    font-size: 4.5rem;
-    margin: 0 0 1rem;
+    font-size: 3.6rem;
+    margin: 2rem 0 1rem;
     text-decoration: none;
   }
 
   &__subheading {
     font-family: $serif-font;
-    font-size: 3.15rem;
+    font-size: 2.9rem;
     margin: 0;
     color: $primary-color;
   }
 }
 
-@include media('<800px') {
-  .main--event {
-    & .tile__heading {
-      font-size: 4.25rem;
-    }
-    & .tile__subheading {
-      font-size: 3rem;
-    }
-  }
-}
+// @include media('<800px') {
+//   .main--event {
+//     & .tile__heading {
+//       font-size: 4.25rem;
+//     }
+//     & .tile__subheading {
+//       font-size: 3rem;
+//     }
+//   }
+// }

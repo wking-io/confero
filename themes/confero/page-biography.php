@@ -35,7 +35,7 @@ endif;
         <div class="biography__info">
           <h2 class="biography__title"><?php echo $bio_title ?></h2>
           <div class="biography__content"><?php echo $bio_content; ?></div>
-          <button class="biography__btn btn btn--ghost open-video">See Christopher Confero In Action</button>
+          <a class="biography__btn btn btn--ghost" href="<?php echo home_url() . '/portfolio/christopher-in-action/'; ?>">See Christopher Confero In Action</a>
         </div>
         <div class="biography__headshot">
           <img src="<?php echo $bio_img['url'] ?>" alt="" class="biography__headshot__img">

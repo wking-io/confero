@@ -18,8 +18,8 @@
 .pub__overlay {
   position: absolute;
   background-image: linear-gradient(
-    rgba($primary-color, 0.95),
-    rgba($primary-color, 0.95)
+    rgba($primary-color, 0.85),
+    rgba($primary-color, 0.85)
   );
   top: 0;
   left: 0;
@@ -51,7 +51,7 @@
   width: 100%;
 
   &:first-child {
-    margin-bottom: 2vw;
+    margin-bottom: 1.25vw;
   }
 }
 

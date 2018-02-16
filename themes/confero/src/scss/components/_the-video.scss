@@ -1,7 +1,10 @@
 .the-video {
   display: none;
   position: fixed;
-  background-image: linear-gradient(rgba($primary-color, 0.95), rgba($primary-color, 0.95));
+  background-image: linear-gradient(
+    rgba($primary-color, 0.95),
+    rgba($primary-color, 0.95)
+  );
   top: 0;
   bottom: 0;
   left: 0;
@@ -17,6 +20,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 70vw;
+    max-width: 800px;
   }
 
   &__wrapper {

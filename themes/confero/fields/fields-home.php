@@ -22,7 +22,7 @@
       '/portfolio/event/weddings' => 'Weddings Page',
       '/portfolio/event/social' => 'Social Page',
       '/portfolio/event/corporate' => 'Corporate Page',
-      '/media/type/publications' => 'Publications Page',
+      '/media/type/print' => 'Print Page',
       '/media/type/films' => 'Films Page',
       '/converse' => 'Contact Page',
     );

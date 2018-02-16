@@ -4,27 +4,29 @@
 
     <section class="converse">
       <div class="container">
-        <h1 class="converse__heading"><?php the_field('converse_heading'); ?></h1>
-        <p class="converse__content"><?php the_field('converse_content'); ?></p>
+        <div class="converse__info">
+          <h1 class="converse__heading"><?php the_field('converse_heading'); ?></h1>
+          <p class="converse__content"><?php the_field('converse_content'); ?></p>
 
-        <?php if( have_rows('converse_options') ): ?>
-          <div class="converse__options flex">
-          <?php while ( have_rows('converse_options') ) : the_row(); 
-            $is_email = filter_var(get_sub_field('converse_info'), FILTER_VALIDATE_EMAIL); ?>
-            <div class="converse__options__item">
-              <h2 class="converse__options__title"><?php the_sub_field('converse_title'); ?></h2>
-              <p class="converse__options__info">
-                <?php if ($is_email !== false) : ?>
-                  <a href="emailto:<?php the_sub_field('converse_info'); ?>"><?php the_sub_field('converse_info'); ?></a>
-                <?php else : ?>
-                  <?php the_sub_field('converse_info'); ?>
-                <?php endif; ?>
-              </p>
+          <?php if( have_rows('converse_options') ): ?>
+            <div class="converse__options">
+            <?php while ( have_rows('converse_options') ) : the_row(); 
+              $is_email = filter_var(get_sub_field('converse_info'), FILTER_VALIDATE_EMAIL); ?>
+              <div class="converse__options__item">
+                <p class="converse__options__info">
+                  <?php if ($is_email !== false) : ?>
+                    <a href="emailto:<?php the_sub_field('converse_info'); ?>"><?php the_sub_field('converse_info'); ?></a>
+                  <?php else : ?>
+                    <?php the_sub_field('converse_info'); ?>
+                  <?php endif; ?>
+                </p>
+              </div>
+
+            <?php endwhile; ?>
             </div>
-
-          <?php endwhile; ?>
-          </div>
-        <?php endif; ?>
+          <?php endif; ?>
+        </div>
+        <?php gravity_form(1, false, false, false, '', true, 12); ?>
       </div>
     </section>
 

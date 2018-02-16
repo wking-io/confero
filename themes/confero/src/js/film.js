@@ -1,4 +1,5 @@
 import * as R from 'ramda';
+import Player from '@vimeo/player';
 import {
   dom,
   domAll,
@@ -10,16 +11,14 @@ import {
   removeClass,
   findParent,
   getProp,
-  trace,
 } from './helpers';
 
-const { curry, compose } = R;
+const { curry, compose, reduce } = R;
 
 const getByDataAttr = curry((attr, elms, val) => elms.find(el => el.dataset[attr] === `${val}`));
 
 const showFilm = compose(
   addClass('the-video__wrapper--open'),
-  trace,
   getByDataAttr('filmId', domAll('.the-video__wrapper')),
 );
 
@@ -37,10 +36,23 @@ const showFilmWrapped = (e) => {
 
 const showVideo = wrapEvent(addClass, ['the-video--open', dom('.the-video')]);
 
+const playerReducer = (acc, el) =>
+  Object.assign(acc, { [el.dataset.filmId]: new Player(el.firstElementChild) });
+
+const players = reduce(playerReducer, {}, domAll('.the-video__wrapper'));
+
+const pausePlayer = curry((obj, el) => {
+  const id = el.dataset.filmId;
+  obj[id].pause();
+  return el;
+});
+
 const hideVideo = (e) => {
   if (containsClass('the-video', e.target)) {
     removeClass('the-video--open', dom('.the-video'));
-    removeClass('the-video__wrapper--open', dom('.the-video__wrapper--open'));
+    compose(removeClass('the-video__wrapper--open'), pausePlayer(players), dom)(
+      '.the-video__wrapper--open',
+    );
   }
   return e;
 };

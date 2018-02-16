@@ -30,7 +30,7 @@
         letter-spacing: 0.5rem;
 
         &:hover {
-          text-decoration: underline;
+          font-weight: bold;
         }
       }
 
@@ -70,9 +70,9 @@
     &:after {
       content: '';
       position: absolute;
-      height: 8rem;
+      height: 5rem;
       width: 100%;
-      top: -8rem;
+      top: -5rem;
       left: 0;
     }
 
@@ -92,7 +92,7 @@
       letter-spacing: 0.125rem;
 
       &:hover {
-        text-decoration: underline;
+        font-weight: bold;
       }
     }
   }
