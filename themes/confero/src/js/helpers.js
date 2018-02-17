@@ -1,16 +1,15 @@
-import * as R from 'ramda';
-
-const { ifElse, map, curry, partial } = R;
+import { ifElse, map, curry, partial } from 'ramda';
 
 export const elExists = classname => document.querySelector(classname);
 
-const isElmNode = el => el && el.nodeType === 1;
+export const isElmNode = el => el && el.nodeType === 1;
 const isArray = a => Array.isArray(a);
 
 const branch = fn => ifElse(isArray, map(fn), fn);
 
-export function dom(selector, root = false) {
-  const el = isElmNode(root) ? root.querySelector(selector) : document.querySelector(selector);
+export function dom(selector, root) {
+  const el =
+    root && isElmNode(root) ? root.querySelector(selector) : document.querySelector(selector);
   return el || { error: 'element not found' };
 }
 
@@ -36,13 +35,11 @@ export const addClass = classList('add');
 export const removeClass = classList('remove');
 export const toggleClass = classList('toggle');
 
-function _containsClass(className, el) {
+function _hasClass(className, el) {
   return el.classList.contains(className);
 }
 
-export const containsClass = curry((className, el) =>
-  branch(partial(_containsClass, [className]))(el),
-);
+export const hasClass = curry((className, el) => branch(partial(_hasClass, [className]))(el));
 
 function _setAttr(attr, val, el) {
   el.setAttribute(attr, val);
@@ -61,7 +58,6 @@ const _findParent = (pred, el) => {
   if (el === document.body) {
     return el;
   }
-
   return pred(el.parentElement) ? el.parentElement : _findParent(pred, el.parentElement);
 };
 

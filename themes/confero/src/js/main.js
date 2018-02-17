@@ -1,4 +1,4 @@
-import * as R from 'ramda';
+import { compose } from 'ramda';
 
 import '../scss/main.scss';
 import '../fonts/bd45538f-4200-4946-b177-02de8337032d.eot';
@@ -22,16 +22,7 @@ import '../fonts/3bd69eb9-2110-4d97-989e-99a659576659.woff';
 import '../fonts/8edaed62-069c-4a3b-87f5-fc14b5cdaec3.ttf';
 import '../fonts/d5c40f0a-3098-4a2b-8cbb-84524c2a29bc.svg';
 
-import {
-  dom,
-  eventOn,
-  wrapEvent,
-  toggleClass,
-  setAttr,
-  getAttr,
-} from './helpers';
-
-const { compose } = R;
+import { dom, eventOn, wrapEvent, toggleClass, setAttr, getAttr } from './helpers';
 
 // Toggle Nav
 const nav = dom('.nav');

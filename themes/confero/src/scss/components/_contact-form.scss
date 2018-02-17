@@ -15,6 +15,10 @@
         left: 3.75rem;
         color: $white;
         font-size: 3.5rem;
+
+        &.label-hide {
+          display: none;
+        }
       }
 
       &

@@ -1,4 +1,4 @@
-import * as R from 'ramda';
+import { curry, compose, reduce } from 'ramda';
 import Player from '@vimeo/player';
 import {
   dom,
@@ -12,8 +12,6 @@ import {
   findParent,
   getProp,
 } from './helpers';
-
-const { curry, compose, reduce } = R;
 
 const getByDataAttr = curry((attr, elms, val) => elms.find(el => el.dataset[attr] === `${val}`));
 
