@@ -1,15 +1,6 @@
 import $ from 'jquery';
 import 'slick-carousel';
-import {
-  classList,
-  dom,
-  domAll,
-  setProp,
-  getProp,
-  findParent,
-  containsClass,
-  eventOn,
-} from './helpers';
+import { classList, dom, domAll, setProp, getProp, findParent, hasClass, eventOn } from './helpers';
 
 export function initTumblrSlider(context) {
   const loading = status => (e) => {
@@ -22,7 +13,7 @@ export function initTumblrSlider(context) {
 
   $(`${context} .slider`).slick({
     infinite: true,
-    autoplay: true,
+    autoplay: false,
     cssEase: 'ease-in',
     speed: 400,
     arrows: false,
@@ -68,7 +59,7 @@ const fancyNav = (context) => {
   // On before slide change
   /* eslint-disable eqeqeq */
   $(`${context} .slider`).on('beforeChange', (event, slick, currentSlide, nextSlide) => {
-    const parentEl = findParent(containsClass('steps-slider'), event.target);
+    const parentEl = findParent(hasClass('steps-slider'), event.target);
     setProp('activeSlide', nextSlide, getProp('dataset', parentEl));
   });
 };

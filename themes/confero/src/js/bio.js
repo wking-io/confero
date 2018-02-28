@@ -6,7 +6,7 @@ import {
   eventOn,
   addClass,
   removeClass,
-  containsClass,
+  hasClass,
   wrapEvent,
 } from './helpers';
 
@@ -20,7 +20,7 @@ eventOn('click', showVideo, domAll('.open-video'));
 
 // Close Bio Video
 const hideVideo = (e) => {
-  if (containsClass('the-video', e.target)) {
+  if (hasClass('the-video', e.target)) {
     removeClass('the-video--open', dom('.the-video'));
   }
   return e;

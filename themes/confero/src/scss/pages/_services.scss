@@ -2,7 +2,7 @@
   .service-tile {
     color: $white;
     width: 100%;
-    min-height: 460px;
+    min-height: 500px;
     position: relative;
     overflow: hidden;
     margin-bottom: 15rem;
@@ -74,6 +74,23 @@
 
     &__link--mobile {
       display: none;
+    }
+  }
+}
+
+@include media('>=1200px') {
+  .services {
+    .service-tile {
+      max-width: 1300px;
+      margin: 0 auto 15rem;
+
+      &:first-child {
+        margin-top: 10rem;
+      }
+
+      &:last-child {
+        margin-bottom: 10rem;
+      }
     }
   }
 }

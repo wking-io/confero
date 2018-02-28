@@ -40,8 +40,11 @@
   & .slider-secondary {
     position: absolute;
     bottom: 0;
-    left: calc(((100% / 12) * 7));
-    margin-left: -200px;
+    left: calc(((100% / 12) * 7) - 200px);
+
+    & .slick-list {
+      overflow: visible;
+    }
 
     & .slider-arrows {
       margin: 0 0 3rem calc(200px + 3rem);
@@ -59,10 +62,23 @@
     & .slick-slide {
       width: 200px;
       margin-right: 3rem;
+      transition: opacity 0.2s ease-in-out 0.2s;
     }
 
     & .slick-current {
       opacity: 0;
+      margin-left: calc(((1140px / 12) * 7) - 200px);
+      transition: opacity 0.1s ease-in-out;
+    }
+  }
+}
+
+@include media('<1267px') {
+  .portfolio-item {
+    & .slider-secondary {
+      & .slick-current {
+        margin-left: calc(((90vw / 12) * 7) - 200px);
+      }
     }
   }
 }

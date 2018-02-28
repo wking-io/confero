@@ -7,7 +7,7 @@ import {
   elExists,
   eventOn,
   wrapEvent,
-  containsClass,
+  hasClass,
   removeClass,
   findParent,
   getProp,
@@ -21,13 +21,11 @@ const showFilm = compose(
 );
 
 const showFilmWrapped = (e) => {
-  if (containsClass('open-video', e.target)) {
+  if (hasClass('open-video', e.target)) {
     showFilm(compose(getProp('filmId'), getProp('dataset'))(e.target));
   }
   showFilm(
-    compose(getProp('filmId'), getProp('dataset'), findParent(containsClass('open-video')))(
-      e.target,
-    ),
+    compose(getProp('filmId'), getProp('dataset'), findParent(hasClass('open-video')))(e.target),
   );
   return e;
 };
@@ -46,7 +44,7 @@ const pausePlayer = curry((obj, el) => {
 });
 
 const hideVideo = (e) => {
-  if (containsClass('the-video', e.target)) {
+  if (hasClass('the-video', e.target)) {
     removeClass('the-video--open', dom('.the-video'));
     compose(removeClass('the-video__wrapper--open'), pausePlayer(players), dom)(
       '.the-video__wrapper--open',
