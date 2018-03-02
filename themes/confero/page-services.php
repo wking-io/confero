@@ -14,13 +14,15 @@
             <div class="service-tile">
               <img class="service-tile__bg" src="<?php echo $tile_img['sizes']['full']; ?>" />
               <div class="service-tile__overlay"></div>
-              <div class="service-tile__info flex">
-                <div class="service-tile__header">
-                  <h2 class="service-tile__title"><?php echo $tile_title; ?></h2>
-                  <a class="service-tile__link btn btn--ghost btn--ghost-light" href="<?php echo home_url() . $tile_link_url; ?>"><?php echo $tile_link_text; ?></a>
+              <div class="service-tile__info">
+                <div class="service-tile__info-wrapper flex">
+                  <div class="service-tile__header">
+                    <h2 class="service-tile__title"><?php echo $tile_title; ?></h2>
+                    <a class="service-tile__link btn btn--ghost btn--ghost-light" href="<?php echo home_url() . $tile_link_url; ?>"><?php echo $tile_link_text; ?></a>
+                  </div>
+                  <div class="service-tile__description"><?php echo $tile_description; ?></div>
+                  <a class="service-tile__link--mobile btn btn--ghost" href="<?php echo home_url() . $tile_link_url; ?>"><?php echo $tile_link_text; ?></a>
                 </div>
-                <div class="service-tile__description"><?php echo $tile_description; ?></div>
-                <a class="service-tile__link--mobile btn btn--ghost" href="<?php echo home_url() . $tile_link_url; ?>"><?php echo $tile_link_text; ?></a>
               </div>
             </div>
 

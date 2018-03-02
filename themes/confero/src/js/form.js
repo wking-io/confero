@@ -1,10 +1,10 @@
 import { compose, curry, ifElse } from 'ramda';
-import { addClass, removeClass, getProp, findParent, hasClass, isElmNode, trace } from './helpers';
+import { addClass, removeClass, getProp, findParent, hasClass, isElmNode } from './helpers';
 
 const hideLabel = addClass('label-hide');
 const showLabel = removeClass('label-hide');
 const isEmpty = str => str.length > 0;
-const hasValue = compose(trace, isEmpty, getProp('value'));
+const hasValue = compose(isEmpty, getProp('value'));
 
 const getChild = curry((sel, parent) => {
   const el = isElmNode(parent) && parent.querySelector(sel);

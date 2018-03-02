@@ -32,8 +32,11 @@ const showFilmWrapped = (e) => {
 
 const showVideo = wrapEvent(addClass, ['the-video--open', dom('.the-video')]);
 
-const playerReducer = (acc, el) =>
-  Object.assign(acc, { [el.dataset.filmId]: new Player(el.firstElementChild) });
+const playerReducer = function playerReducer(acc, el) {
+  return el.firstElementChild && el.firstElementChild.nodeName === 'IFRAME'
+    ? Object.assign(acc, { [el.dataset.filmId]: new Player(el.firstElementChild) })
+    : acc;
+};
 
 const players = reduce(playerReducer, {}, domAll('.the-video__wrapper'));
 

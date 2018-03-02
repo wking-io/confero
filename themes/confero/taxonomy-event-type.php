@@ -8,6 +8,22 @@
  */
 
 $portfolio_categories = array_reverse( get_terms('event-type') );
+
+function cmp($a, $b) {
+	$priority = array(
+		'editorial' => 0,
+		'weddings' => 1,
+		'social' => 2,
+		'corporate' => 3,
+		'vip' => 4,
+		'christopher' => 5
+	);
+
+	return ($priority[$a->slug] < $priority[$b->slug]) ? -1 : 1;
+}
+
+uasort($portfolio_categories, 'cmp');
+
 get_header(); ?>
   <main id="main" class="main main--event" role="main">
 
