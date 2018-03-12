@@ -40,7 +40,18 @@
   background-position: center;
   position: relative;
   color: $white;
+  min-height: 56.25vw;
   padding: 20rem 0;
+  display: flex;
+  align-items: center;
+
+  &__bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+  }
 
   &__overlay {
     position: absolute;
@@ -58,7 +69,6 @@
   & .container {
     align-items: center;
     position: relative;
-    z-index: 1;
   }
 
   &__play {

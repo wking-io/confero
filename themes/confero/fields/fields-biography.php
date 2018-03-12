@@ -36,6 +36,14 @@
         'instructions' => 'Paste the link from Vimeo here',
       ),
       array(
+        'key' => 'field_promo_video_bg_loop',
+        'label' => 'Promo Background Loop',
+        'name' => 'promo_video_bg_loop',
+        'type'    => 'file',
+        'return_format' => 'array',
+        'mime_types' 		=> 'mp4',
+      ),
+      array(
         'key' => 'field_promo_video_bg',
         'label' => 'Promo Background Image',
         'name' => 'promo_video_bg',

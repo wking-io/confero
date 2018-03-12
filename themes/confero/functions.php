@@ -229,6 +229,10 @@ function confero_change_posts_per_page( $query ) {
     if ( is_post_type_archive( 'confero_portfolio' ) ) {
        $query->set( 'posts_per_page', -1 );
 		}
+
+		if ( array_key_exists('event-type', $query->query) ) {
+			$query->set( 'posts_per_page', -1 );
+		}
 		
 		if ( array_key_exists('media-type', $query->query) && $query->query['media-type'] === 'print' ) {
 			$query->set( 'posts_per_page', -1 );

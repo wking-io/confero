@@ -43,7 +43,12 @@ endif;
       </div>
     </section>
 
-    <section class="promo-video" <?php if ($promo_bg) { echo 'style="background-image: url(' . $promo_bg['sizes']['full'] . ')" '; }?>>
+    <section class="promo-video">
+      <video playsinline="" autoplay="" muted="" loop="" preload="auto" class="promo-video__bg" poster="<?php echo $promo_bg['sizes']['full']; ?>">
+        <?php $bg_video = get_field('promo_video_bg_loop'); ?>
+        <source src="<?php echo $bg_video['url']; ?>" type="<?php echo 'video/mp4' ?>">
+        Your browser does not support the video tag.
+      </video>
       <div class="promo-video__overlay"></div>
       <div class="container flex">
         <div class="promo-video__play">
