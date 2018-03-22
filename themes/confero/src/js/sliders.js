@@ -94,7 +94,7 @@ export function initPortfolioSlider(context) {
   const settings = {
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     arrows: false,
     fade: true,
     asNavFor: `${context} .slider-sub`,
@@ -113,7 +113,7 @@ export function initPortfolioSlider(context) {
     variableWidth: true,
     slidesToScroll: 1,
     arrows: false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 5000,
     asNavFor: `${context} .slider`,
     focusOnSelect: true,

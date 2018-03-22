@@ -162,6 +162,27 @@
               'bottom-right' => 'Bottom - Right',
               'bottom-left' => 'Bottom - Left',
             ),
+          ),array(
+            'key' => 'field_home_service_custom_toggle',
+            'label' => 'Set custom url for image',
+            'name' => 'home_service_custom_toggle',
+            'type' => 'true_false',
+          ),
+          array(
+            'key' => 'field_home_service_custom_link',
+            'label' => 'Custom Slide Link',
+            'name' => 'home_service_custom_link',
+            'type'    => 'url',
+            'instructions' => 'Enter custom url you want the tile to link to.',
+            'conditional_logic' => array(
+              array(
+                array(
+                  'field' => 'field_home_service_custom_toggle',
+                  'operator' => '==',
+                  'value' => '1',
+                ),
+              ),
+            ),
           ),
           array(
             'key' => 'field_home_service_link',
@@ -170,6 +191,15 @@
             'type'    => 'select',
             'instructions' => 'This dropdown lets you choose where the tile links to',
             'choices' => get_home_service_links(),
+            'conditional_logic' => array(
+              array(
+                array(
+                  'field' => 'field_home_service_custom_toggle',
+                  'operator' => '!=',
+                  'value' => '1',
+                ),
+              ),
+            ),
           ),
         ),
       ),

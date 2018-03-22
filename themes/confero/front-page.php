@@ -86,11 +86,12 @@
 							$tile_img = get_sub_field('home_service_img');
 							$tile_text = get_sub_field('home_service_text');
 							$tile_text_position = get_sub_field('home_service_position');
-							$tile_link = get_sub_field('home_service_link'); ?>
+							$is_custom = get_sub_field('home_service_custom_toggle');
+							$tile_link = $is_custom ? get_sub_field('home_service_custom_link') : get_sub_field('home_service_link'); ?>
 	
 							<div class="service-tile service-tile--compact">
 								<div class="service-tile__bg" <?php if ( ! empty( $tile_img ) ) { echo 'style="background-image: url(' . $tile_img['sizes']['large'] . ');"'; } ?>></div>
-								<a class="service-tile__link" href="<?php echo home_url() . $tile_link; ?>">
+								<a class="service-tile__link" href="<?php echo $is_custom ? $tile_link : home_url() . $tile_link; ?>">
 									<?php if ( $tile_text ) : ?>
 										<h2 class="service-tile__title <?php echo ! empty( $tile_text_position ) ? $tile_text_position : 'top-left';  ?>"><?php echo $tile_text; ?></h2>
 									<?php endif; ?>
